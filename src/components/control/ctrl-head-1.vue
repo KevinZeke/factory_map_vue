@@ -8,19 +8,32 @@
         <div class="col-md-3 head-chart" id="h-c-2" style="height: 100%">
             <pie :option="pieData"></pie>
         </div>
-        <div class="col-md-6 head-chart" id="h-c-3" style="height: 100%">
-            <Carousel v-model="carouseIndex"  :height="180" loop>
+        <div class="col-md-6 head-chart" id="h-c-3" style="height: 100%;overflow: hidden">
+            <div v-if="!showChartDelay"
+                 style="width: 100%;height: 100%;position: absolute;">
+                <Spin fix></Spin>
+            </div>
+            <Carousel v-model="carouseIndex" autoplay :autoplay-speed="4000" :height="180" loop>
                 <CarouselItem>
-                    <div class="carouse-item">1</div>
+                    <div class="carouse-item">
+                        <eline :width="'90%'"
+                               :height="'90%'" v-if="showChartDelay" :option="lineData"></eline>
+                    </div>
                 </CarouselItem>
                 <CarouselItem>
-                    <div class="carouse-item">2</div>
+                    <div class="carouse-item">
+                        <pie v-if="showChartDelay" :option="pieData"></pie>
+                    </div>
                 </CarouselItem>
                 <CarouselItem>
-                    <div class="carouse-item">3</div>
+                    <div class="carouse-item">
+                        <pie v-if="showChartDelay" :option="pieData"></pie>
+                    </div>
                 </CarouselItem>
                 <CarouselItem>
-                    <div class="carouse-item">4</div>
+                    <div class="carouse-item">
+                        <pie v-if="showChartDelay" :option="pieData"></pie>
+                    </div>
                 </CarouselItem>
             </Carousel>
         </div>
@@ -30,19 +43,26 @@
 <script>
     import btnClose from '../../base/button/close.vue'
     import pie from '../../chart/pie.vue'
+    import eline from '../../chart/line.vue'
 
     export default {
         data() {
             return {
                 pieData: {},
+                lineData: {},
                 show: true,
-                carouseIndex:0
+                carouseIndex: 0,
+                showChartDelay: false
             }
         },
         mounted() {
             this.drawPie();
+            this.drawLine();
+            setTimeout(() => {
+                this.showChartDelay = true;
+            }, 500);
         },
-        components: {btnClose, pie},
+        components: {btnClose, pie, eline},
         methods: {
             drawPie() {
                 this.pieData = {
@@ -84,13 +104,71 @@
                         }
                     ]
                 };
+            },
+            drawLine() {
+                this.lineData = {
+                    title: {
+                        text: '堆叠区域图'
+                    },
+
+                    legend: {
+                        data: ['危险化学品A', '危险化学品B', '危险化学品C'],
+                        right: '1%'
+                    },
+
+                    grid: {
+                        left: '5%',
+                        right: '4%',
+                        bottom: '3%',
+                        containLabel: true
+                    },
+                    xAxis: [
+                        {
+                            type: 'category',
+                            boundaryGap: false,
+                            data: ['第一季度', '第二季度', '第三季度', '第四季度']
+                        }
+                    ],
+                    yAxis: [
+                        {
+                            type: 'value'
+                        }
+                    ],
+                    series: [
+                        {
+                            name: '危险化学品A',
+                            type: 'line',
+                            stack: '总量',
+                            areaStyle: {normal: {}},
+                            data: [120, 132, 101, 134]
+                        },
+                        {
+                            name: '危险化学品B',
+                            type: 'line',
+                            stack: '总量',
+                            areaStyle: {normal: {}},
+                            data: [220, 182, 191, 234]
+                        },
+                        {
+                            name: '危险化学品C',
+                            type: 'line',
+                            stack: '总量',
+                            areaStyle: {normal: {}},
+                            data: [150, 232, 201, 154]
+                        }
+                    ]
+                };
             }
         }
     }
 </script>
 
 <style scope>
-.carouse-item{
-    height: 100%;
-}
+    .carouse-item {
+        height: 100%;
+    }
+
+    .head-chart {
+        position: relative;
+    }
 </style>

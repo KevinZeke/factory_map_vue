@@ -78,18 +78,21 @@
             </tr>
             </tbody>
             <tbody>
-                <tr><td colspan="7">
+            <tr>
+                <td colspan="7">
                     <div class="col-md-12" style="height:30px;margin-bottom:10px;">
-            <Page class="table-page" 
-                :current.sync="currentPage" 
-                :total="totalList"
-                @on-change="pageOnChange" 
-                simple></Page>
-        </div>
-                </td></tr>
+                        <Page class="table-page"
+                              :page-size="4"
+                              :current.sync="currentPage"
+                              :total="totalList"
+                              @on-change="pageOnChange"
+                              simple></Page>
+                    </div>
+                </td>
+            </tr>
             </tbody>
         </table>
-        
+
         <!--<loading></loading>-->
         <bar
                 style="margin-top:20px;"
@@ -125,9 +128,9 @@
                 //化学物表格内容数组
                 chemicalsList: [],
                 //当前页数
-                currentPage:1,
+                currentPage: 1,
                 //列表数据总条数
-                totalList:0,
+                totalList: 0,
                 //是否显示图表
                 chartShow: false,
                 //chartName:'',
@@ -149,22 +152,27 @@
                 this._routerChangeInit();
                 this._getChemicalsList(
                     route.params.name,
-                    this.getFomattedTime()
+                    this.getFomattedTime(),
+                    this.currentPage
                 );
             },
             valueMon(val) {
+                this.currentPage = 1;
                 this._getChemicalsList(
                     this.$route.params.name,
-                    new Date(val).Format('yyyy-MM')
+                    new Date(val).Format('yyyy-MM'),
+                    this.currentPage
                 );
             },
             valueDate(val) {
+                this.currentPage = 1;
                 this._getChemicalsList(
                     this.$route.params.name,
                     [
                         new Date(val[0]).Format('yyyy-MM-dd'),
                         new Date(val[1]).Format('yyyy-MM-dd')
-                    ]
+                    ],
+                    this.currentPage
                 );
             }
         },
@@ -177,13 +185,17 @@
 //            );
         },
         methods: {
-            _getChemicalsList(fname, curTime) {
-                console.log(fname, curTime)
-                setTimeout(() => {
-                    this.chemicalsList = getFactoryChemicals(fname, curTime);
-                }, 300)
-                this.totalList = 50>>0;
+            _getChemicalsList(fname, curTime, curPage) {
+                console.log(fname, curTime, curPage)
+
+                getFactoryChemicals(fname, curTime, curPage).then((resp) => {
+                    //console.log(resp.data);
+                    this.chemicalsList = resp.data.list;
+                    this.totalList = resp.data.totalList;
+                });
+
             },
+
             _getChemicalInfo(cname) {
                 setTimeout(() => {
                     this.chemicalData = {
@@ -193,7 +205,7 @@
                         tooltip: {},
                         xAxis: {data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]},
                         yAxis: {},
-                        legend: {data: ['存储量(柱)','存储量(线)']},
+                        legend: {data: ['存储量(柱)', '存储量(线)']},
                         series: [
                             {
                                 name: '存储量(柱)',
@@ -220,11 +232,13 @@
                     }
                 }, 300)
             },
-            _routerChangeInit(){
+
+            _routerChangeInit() {
                 this.chartShow = false;
                 this.show = true;
                 this.currentPage = 1;
             },
+
             getFomattedTime() {
                 return this.isCurMonth ?
                     new Date(this.valueMon).Format('yyyy-MM') :
@@ -233,20 +247,22 @@
                         new Date(this.valueDate[1]).Format('yyyy-MM-dd')
                     ];
             },
+
             showChemicalInfo(cname) {
                 this.chartShow = true;
                 this._getChemicalInfo(cname);
             },
-            pageOnChange(curPage){
-                console.log(curPage);
+
+            pageOnChange(curPage) {
                 this._getChemicalsList(
                     this.$route.params.name,
-                    this.getFomattedTime()
+                    this.getFomattedTime(),
+                    curPage
                 );
             },
-            detailClose(){
-                this.$router.push({path:'/'});
-                //this.show = false;
+
+            detailClose() {
+                this.$router.push({path: '/'});
             }
         }
     }
@@ -270,12 +286,7 @@
         text-align: center;
     }
 
-    .table-page{
-        margin:5px auto;
-        width: 150px;
-        min-width: 150px;
-        position: absolute;
-        left:50%;
-        margin-left: -75px;
+    .table-page {
+        margin: 8px auto;
     }
 </style>

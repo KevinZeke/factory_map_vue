@@ -65,7 +65,7 @@
         display: inline-block;
         max-width: none;
         border-radius: 3px;
-        border: 1px solid #ccc;
+        /*border: 1px solid #ccc;*/
         box-shadow: 1px 1px 1px 1px #ccc;
     }
 </style>
