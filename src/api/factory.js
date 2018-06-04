@@ -1,11 +1,15 @@
 import axios from 'axios'
 
+var winurl = 'http://localhost/che/factory_map/php/factory';
+
+var macurl = 'http://localhost:8888/che/php/factory/';
+
 /**
  * 获取所有工厂信息
  * @return {Promise}
  */
 export function getAllFactoryInfos() {
-    return axios.get('http://localhost/che/factory_map/php/factory/factory_info.php', {params: {}});
+    return axios.get(macurl+'/factory_info.php', {params: {}});
 }
 
 export function getFactoryChemicals(fname) {
