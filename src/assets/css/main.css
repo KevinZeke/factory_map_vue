@@ -1,0 +1,28 @@
+ul, li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    float: left;
+}
+
+html {
+    height: 100%
+}
+
+body {
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    /*font-family: "微软雅黑";*/
+}
+
+* {
+    transition: ease-in-out .2s;
+    font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+    
+}
+.ctrl-common {
+    border-radius: 3px;
+    background-color: #fff;
+    box-shadow: 1px 1px 1px 1px #ccc;
+}
