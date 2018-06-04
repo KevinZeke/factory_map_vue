@@ -4,12 +4,14 @@ var winurl = 'http://localhost/che/factory_map/php/factory';
 
 var macurl = 'http://localhost:8888/che/php/factory/';
 
+var url = 'http://localhost/'
+
 /**
  * 获取所有工厂信息
  * @return {Promise}
  */
 export function getAllFactoryInfos() {
-    return axios.get(macurl+'/factory_info.php', {params: {}});
+    return axios.get(url+'/fphp/factory/factory_info.php', {params: {}});
 }
 
 export function getFactoryChemicals(fname) {
