@@ -84,9 +84,11 @@
     }
 
     #ctrl li {
-        padding: 8px;
+        padding: 6px;
+        float: left;
         cursor: pointer;
         width: 100%;
+        font-size: 13px;
         border-bottom: 1px solid #6fe9ff;
     }
 

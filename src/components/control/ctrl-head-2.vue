@@ -1,6 +1,6 @@
 <template>
-    <div  v-if="show"  id="head-ctrl-2" class="ctrl-box col-md-2 col-md-offset-8 ctrl-common"
-         style="height: 30%;background-color:#fff; position: absolute;top: 0;left: 0;">
+    <Card   v-if="show"  id="head-ctrl-2" class="ctrl-box col-md-2 col-md-offset-8 ctrl-common"
+         style="height: 180px;background-color:#fff; position: absolute;top: 0;left: 0;padding:2px">
         <btn-close @close="show = false"></btn-close>
         <h4>共: <span style="font-size: 30px;color: steelblue">11122233</span></h4>
         <table class="table  table-striped">
@@ -23,15 +23,9 @@
                 <td>-</td>
                 <td>-</td>
             </tr>
-            <tr>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-            </tr>
             </tbody>
         </table>
-    </div>
+    </Card >
 </template>
 
 <script>
@@ -49,6 +43,8 @@
     }
 </script>
 
-<style>
-
+<style scope>
+table{
+    font-size: 12px;
+}
 </style>

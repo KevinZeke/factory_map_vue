@@ -1,6 +1,6 @@
 <template>
     <div v-if="show" id="right-ctrl" class="ctrl-box col-md-2 ctrl-common"
-         style="height: 70%;position: absolute;top: 30%;">
+         style="height: calc(100%-180);position: absolute;top: 180px;">
         <btn-close @close="show = false"></btn-close>
         <div style="padding-top: 10px;">
             <h4>共: <span style="font-size: 28px;color: steelblue">112,233</span>吨</h4>

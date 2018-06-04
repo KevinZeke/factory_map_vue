@@ -1,6 +1,6 @@
 <template>
     <div v-if="show" id="head-ctrl" class="ctrl-box col-md-8 ctrl-common"
-         style="height: 30%;background-color:#fff; position: absolute;top: 0;left: 0;">
+         style="height: 180px;background-color:#fff; position: absolute;top: 0;left: 0;">
         <btn-close @close="show = false"></btn-close>
         <div class="col-md-3 head-chart" id="h-c-1" style="height: 100%">
             <pie :option="pieData"></pie>
@@ -8,11 +8,21 @@
         <div class="col-md-3 head-chart" id="h-c-2" style="height: 100%">
             <pie :option="pieData"></pie>
         </div>
-        <div class="col-md-3 head-chart" id="h-c-3" style="height: 100%">
-            <pie :option="pieData"></pie>
-        </div>
-        <div class="col-md-3 head-chart" id="h-c-4" style="height: 100%">
-            <pie :option="pieData"></pie>
+        <div class="col-md-6 head-chart" id="h-c-3" style="height: 100%">
+            <Carousel v-model="carouseIndex"  :height="180" loop>
+                <CarouselItem>
+                    <div class="carouse-item">1</div>
+                </CarouselItem>
+                <CarouselItem>
+                    <div class="carouse-item">2</div>
+                </CarouselItem>
+                <CarouselItem>
+                    <div class="carouse-item">3</div>
+                </CarouselItem>
+                <CarouselItem>
+                    <div class="carouse-item">4</div>
+                </CarouselItem>
+            </Carousel>
         </div>
     </div>
 </template>
@@ -25,7 +35,8 @@
         data() {
             return {
                 pieData: {},
-                show: true
+                show: true,
+                carouseIndex:0
             }
         },
         mounted() {
@@ -78,6 +89,8 @@
     }
 </script>
 
-<style>
-
+<style scope>
+.carouse-item{
+    height: 100%;
+}
 </style>
