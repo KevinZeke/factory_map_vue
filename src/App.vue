@@ -41,7 +41,10 @@
                     this.factoryInfos = resp.data;
                 }).catch((err) => {
                     console.log(err);
-                    alert('获取工厂位置信息失败');
+                    this.$Modal.error({
+                            title: '网络错误',
+                            content: '获得工厂位置信息失败'
+                    });
                 });
             },
             //更新用户点击的工厂

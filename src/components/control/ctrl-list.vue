@@ -34,7 +34,7 @@
         data() {
             return {
                 curActive: 0,
-                isListShow: false,
+                isListShow: true,
                 searchValue: ''
             }
         },

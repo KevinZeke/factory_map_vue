@@ -108,12 +108,13 @@
             drawLine() {
                 this.lineData = {
                     title: {
-                        text: '堆叠区域图'
+                        //text: '堆叠区域图'
                     },
 
                     legend: {
                         data: ['危险化学品A', '危险化学品B', '危险化学品C'],
-                        right: '1%'
+                        right: '1%',
+                        type:'scroll'
                     },
 
                     grid: {

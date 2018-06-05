@@ -9,9 +9,10 @@
     require('echarts/lib/component/tooltip')
     require('echarts/lib/component/title')
     require('echarts/lib/component/grid')
-    require('echarts/lib/component/markLine')
-    require('echarts/lib/component/markPoint')
     require('echarts/lib/component/legend')
+    require('echarts/lib/component/legendScroll')
+    // require('echarts/lib/component/markLine')
+    // require('echarts/lib/component/markPoint')
 
     export default {
         //name: 'hello',

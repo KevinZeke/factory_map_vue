@@ -4,8 +4,8 @@
          style="">
         <btn-close @close="show = false"></btn-close>
         <div style="padding-top: 10px;">
-            <h4>共: <span style="font-size: 28px;color: steelblue">112,233</span>吨</h4>
-            <h4>共: <span style="font-size: 28px;color: #ff5849">555,888</span>吨</h4>
+            <h4>共: <span style="font-size: 28px;color: steelblue">142,213</span>吨</h4>
+            <h4>共: <span style="font-size: 28px;color: #ff5849">545,828</span>吨</h4>
         </div>
         <hr>
         <table class="table table-bordered  table-striped">
