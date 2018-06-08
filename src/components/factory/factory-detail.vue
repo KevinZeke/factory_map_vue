@@ -1,7 +1,7 @@
 <template>
     <div id="detail" v-if="show" class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
         <btn-close @close="detailClose"></btn-close>
-        <div>
+        <div class="row">
             <h4 class="col-md-4 col-sm-12" style="font-weight: bolder">
                 {{$route.params.name}}
             </h4>
@@ -37,6 +37,29 @@
             </div>
             <!--<date-selector @timeOnChange="curTimeChange" class="col-md-8"></date-selector>-->
             <!--<edit-time :datelist='datelist' :options='options'></edit-time>-->
+        </div>
+        <div class="row detail-info">
+            <Collapse value="1" class="clearfix">
+                <Panel name="1">
+                    公司信息
+                    <p slot="content">
+                        始建于1978年，位于XXXXX。厂区占地面积128万平方米，现有员工XXXX人，现有固定资产原值48亿元。
+                    </p>
+                </Panel>
+                <Panel name="2">
+                    联系方式
+                    <div slot="content"  class="row connect">
+                        <div>
+                            <span class="glyphicon glyphicon-phone-alt"></span>
+                            <span>联系电话： 123-12333121</span>
+                        </div>
+                        <div>
+                            <span class="glyphicon glyphicon-send"></span>
+                            <span>邮箱： 12211323@xx.com</span>
+                        </div>
+                    </div>
+                </Panel>
+            </Collapse>
         </div>
         <br>
         <hr class="clearfix">
@@ -288,5 +311,15 @@
 
     .table-page {
         margin: 8px auto;
+    }
+    .detail-info{
+        padding-top: 15px;
+    }
+    .connect{
+        padding: 6px;
+    }
+    .connect div{
+        padding: 1px;
+        margin-bottom: 5px;
     }
 </style>

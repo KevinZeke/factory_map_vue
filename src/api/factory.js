@@ -9,12 +9,12 @@ var macurl = 'http://localhost:8888';
  * 获取所有工厂信息
  */
 export function getAllFactoryInfos() {
-    return axios.get(winurl + '/fphp/factory/factory_info.php', {params: {}});
+    return axios.get(macurl + '/fphp/factory/factory_info.php', {params: {}});
 }
 
 export function getFactoryChemicals(fname, date, page) {
     //chemical_list
-    return axios.get(winurl + '/fphp/factory/chemical_list.php', {
+    return axios.get(macurl + '/fphp/factory/chemical_list.php', {
         params: {
             fname, date, page
         }
