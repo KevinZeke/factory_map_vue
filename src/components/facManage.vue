@@ -4,7 +4,8 @@
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -24,11 +25,10 @@
                 <ul class="nav pb nav-stacked wz">
 
 
-
                     <li class="axq">管理</li>
                     <li class="pa">
-                        <router-link  class="oy active"
-                                      :to="{name:'factoryChemIn',params:{id:$route.params.id}}">
+                        <router-link class="oy active"
+                                     :to="{name:'factoryChemIn',params:{id:$route.params.id}}">
                             化学品录入
                         </router-link>
                     </li>
@@ -39,18 +39,20 @@
                         </router-link>
                     </li>
                     <li class="pa">
-                        <router-link :to="{name:'factoryAcModi',params:{id:$route.params.id}}" class="oy " href="fluid/index.html">
+                        <router-link :to="{name:'factoryAcModi',params:{id:$route.params.id}}" class="oy "
+                                     href="fluid/index.html">
                             账号密码修改
                         </router-link>
                     </li>
 
                     <li class="axq">数据</li>
                     <li class="pa">
-                        <router-link :to="{name:'factoryDetailManage',params:{id:$route.params.id}}" class="oy " href="docs/index.html">
+                        <router-link :to="{name:'factoryDetailManage',params:{id:$route.params.id}}" class="oy "
+                                     href="docs/index.html">
                             化学品数据
                         </router-link>
                     </li>
-                    <li class="pa">
+                    <li class="pa active">
                         <router-link class="oy"
                                      :to="{name:'factoryUpModi',params:{id:$route.params.id}}">
                             更新记录
@@ -59,7 +61,9 @@
                 </ul>
             </div>
             <div class="right col-lg-10 col-md-10 ">
-                <keep-alive><router-view></router-view></keep-alive>
+                <keep-alive>
+                    <router-view></router-view>
+                </keep-alive>
             </div>
         </div>
     </div>
@@ -69,47 +73,63 @@
 <script>
     import factoryDetail from '../components/factory/factory-detail.vue'
     import factoryinfoModi from '../components/factory/factory-info-modify.vue'
+
     export default {
         name: "facManage",
-        created(){
-            console.log(this.$route.params.id);
-            this.$router.push({name:'factoryUpModi',params:{id:this.$route.params.id}});
-        },
-        methods:{
-            logout(){
-                this.$router.push({name:'login'});
+        data() {
+            return {
+                curIndex: 0
             }
         },
-        components:{factoryDetail,factoryinfoModi}
+        created() {
+            //console.log(this.$route.params.id);
+            this.$router.push({name: 'factoryUpModi', params: {id: this.$route.params.id}});
+        },
+        methods: {
+            logout() {
+                this.$router.push({name: 'login'});
+            }
+        },
+        components: {factoryDetail, factoryinfoModi}
     }
 </script>
 
 <style scoped>
-    .wrap,.container{
+    .wrap, .container {
         height: 100%;
     }
-    .nav .axq{
+
+    .nav .axq {
         color: rgb(109, 116, 135);
     }
-    .nav{
+
+    .nav {
         padding-bottom: 15px;
         font-size: 1.1em;
     }
-    .left{
+
+    .left {
         border-bottom: 1px solid rgb(109, 116, 135);
     }
-    .nav li{
+
+    .nav li {
         border-radius: 5px;
         color: rgb(207, 210, 218);
     }
-    .logout{
+
+    .nav li.active {
+        background-color: rgb(109, 116, 135);
+    }
+
+    .logout {
         color: #e2e2e2;
         font-size: 1.2em;
         padding: 15px;
         box-sizing: border-box;
         cursor: pointer;
     }
-    .right{
+
+    .right {
         height: 100%;
     }
 </style>
