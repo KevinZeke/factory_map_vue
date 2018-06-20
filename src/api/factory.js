@@ -1,20 +1,17 @@
 import axios from 'axios'
-
-var winurl = 'http://localhost';
-
-var macurl = 'http://localhost:8888';
+import apiConf from './api.conf'
 
 
 /**
  * 获取所有工厂信息
  */
 export function getAllFactoryInfos() {
-    return axios.get('' + '/fphp/factory/factory_info.php', {params: {}});
+    return axios.get(apiConf.url + '/fphp/factory/factory_info.php', {params: {}});
 }
 
 export function getFactoryChemicals(fname, date, page) {
     //chemical_list
-    return axios.get('' + '/fphp/factory/chemical_list.php', {
+    return axios.get(apiConf.url + '/fphp/factory/chemical_list.php', {
         params: {
             fname, date, page
         }
