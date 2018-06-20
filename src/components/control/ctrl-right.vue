@@ -1,6 +1,6 @@
 <template>
     <div v-if="show" id="right-ctrl"
-         class="ctrl-box col-md-2 ctrl-common"
+         class="ctrl-box col-md-2 ctrl-common  hidden-xs hidden-sm "
          style="">
         <btn-close @close="show = false"></btn-close>
         <div style="padding-top: 10px;">

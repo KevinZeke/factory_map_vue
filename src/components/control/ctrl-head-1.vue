@@ -1,5 +1,5 @@
 <template>
-    <div v-if="show" id="head-ctrl" class="ctrl-box col-md-8 ctrl-common"
+    <div v-if="show" id="head-ctrl" class="ctrl-box hidden-xs hidden-sm col-md-8 ctrl-common"
          style="height: 180px;background-color:#fff; position: absolute;top: 0;left: 0;">
         <btn-close @close="show = false"></btn-close>
         <div class="col-md-3 head-chart" id="h-c-1" style="height: 100%">

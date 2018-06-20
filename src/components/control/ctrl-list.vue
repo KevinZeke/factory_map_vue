@@ -1,9 +1,9 @@
 <template>
     <div id="ctrl" class="col-md-2 col-sm-3">
         <div class="row">
-            <h4 class="col-md-9">单位列表</h4>
+            <h4 class="col-md-9 col-xs-6 col-sm-6">单位列表</h4>
             <button @click="showList"
-                    class="btn btn-sm btn-default col-md-3 f-btn"
+                    class="btn btn-sm btn-default  col-xs-6 col-sm-6 col-md-3 f-btn"
                     v-text="isListShow?'收起':'展开'"></button>
         </div>
         <input type="text"
