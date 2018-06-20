@@ -16,7 +16,7 @@ body {
     /*font-family: "微软雅黑";*/
 }
 body {
-    background-color: #091832;
+    background-color: #252830;
 }
 
 
@@ -29,4 +29,9 @@ body {
     border-radius: 3px;
     background-color: #fff;
     box-shadow: 1px 1px 1px 1px #ccc;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
 }

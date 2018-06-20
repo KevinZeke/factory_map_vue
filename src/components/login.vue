@@ -30,6 +30,7 @@
         created() {
             if (true) {
                 //this.jump();
+                this.$router.push({name: 'facManage'})
             }
         },
         mounted(){
@@ -252,5 +253,6 @@
     form {
         margin: 0 auto;
         z-index: 99;
+        font-size: 1.2em;
     }
 </style>

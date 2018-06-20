@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import factoryDetail from '../components/factory/factory-detail.vue'
+import factoryInfoModi from '../components/factory/factory-info-modify.vue'
 import login from '../components/login'
 import mapCtrl from '../components/mapCtrl'
-import dataIn from '../components/dataInput'
+import facManage from '../components/facManage.vue'
 import noData from '../components/factory/nodata.vue'
 
 Vue.use(Router)
@@ -16,10 +17,21 @@ export default new Router({
             component: login
         },
         {
-            path: '/dataIn',
-            name: 'dataIn',
-            component: dataIn,
-            children: []
+            path: '/facManage',
+            name: 'facManage',
+            component: facManage,
+            children: [
+                {
+                    path: 'factoryDetailManage/:name',
+                    name: 'factoryDetailManage',
+                    component: factoryDetail
+                },
+                {
+                    path: 'factoryInfoModi/:name',
+                    name: 'factoryInfoModi',
+                    component: factoryInfoModi
+                }
+            ]
         },
         {
             path: '/mapCtrl',

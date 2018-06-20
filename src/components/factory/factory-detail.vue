@@ -1,8 +1,8 @@
 <template>
-    <div id="detail" v-if="show" class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
+    <div id="detail" v-if="show" class="col-md-12">
         <btn-close @close="detailClose"></btn-close>
         <div class="row">
-            <h4 class="col-md-4 col-sm-12" style="font-weight: bolder">
+            <h4 class="col-md-4 col-sm-12 fac-name" style="font-weight: bolder">
                 {{$route.params.name}}
             </h4>
             <div class="btn-group col-md-3" role="group" aria-label="...">
@@ -63,7 +63,7 @@
         </div>
         <br>
         <hr class="clearfix">
-        <table id="detail-table" class="table text-center table-striped">
+        <table id="detail-table" class="table table-striped text-center">
             <thead>
             <tr>
                 <th colspan="7">危险化学品列表</th>
@@ -298,11 +298,13 @@
         max-height: 100%;
         overflow: auto;
         z-index: 999;
+        margin: 0 auto;
         position: absolute;
-        top: 0;
-        left: 0;
+        top:0;
         box-shadow: 1px 1px 5px 2px #ccc;
         border-radius: 5px;
+        padding: 15px;
+        box-sizing: border-box;
     }
 
     #detail-table th {
@@ -322,4 +324,65 @@
         padding: 1px;
         margin-bottom: 5px;
     }
+
+
+    /*table{*/
+        /*width: 100%;*/
+        /*max-width: 100%;*/
+        /*margin-bottom: 20px;*/
+        /*border-collapse: collapse;*/
+        /*font-weight: 300;*/
+        /*color: #cbcbcb;*/
+    /*}*/
+    /*table thead{*/
+        /*color: #e2e2e2;*/
+        /*font-size: 1.2em;*/
+    /*}*/
+    /*table tr{*/
+        /*line-height: 38px;*/
+        /*border-bottom: 1px solid gray;*/
+    /*}*/
+
+    /*#detail {*/
+        /*background-color: #252830;*/
+        /*!*height: 200px;*!*/
+        /*max-height: 100%;*/
+        /*overflow: auto;*/
+        /*z-index: 999;*/
+        /*margin: 0 auto;*/
+        /*position: absolute;*/
+        /*top:0;*/
+        /*!*box-shadow: 1px 1px 5px 2px #ccc;*!*/
+        /*border-radius: 5px;*/
+        /*padding: 15px;*/
+        /*box-sizing: border-box;*/
+    /*}*/
+
+    /*.fac-name{*/
+        /*color: #fff;*/
+    /*}*/
+
+    /*#detail-table{*/
+        /*background-color: transparent;*/
+        /*font-size: 1.1em;*/
+        /*border-spacing: 2px;*/
+        /*border-color: #868686;*/
+    /*}*/
+    /*#detail-table th {*/
+        /*text-align: center;*/
+    /*}*/
+
+    /*.table-page {*/
+        /*margin: 8px auto;*/
+    /*}*/
+    /*.detail-info{*/
+        /*padding-top: 15px;*/
+    /*}*/
+    /*.connect{*/
+        /*padding: 6px;*/
+    /*}*/
+    /*.connect div{*/
+        /*padding: 1px;*/
+        /*margin-bottom: 5px;*/
+    /*}*/
 </style>

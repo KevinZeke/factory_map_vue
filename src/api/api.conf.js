@@ -4,7 +4,7 @@ let macurl = 'http://localhost:8888';
 
 export default {
 
-    url: macurl,
+    url: winurl,
     errorCode: 0,
     successCode: 1
 

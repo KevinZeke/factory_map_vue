@@ -43,7 +43,7 @@
     }
 </script>
 
-<style scope>
+<style scoped>
 table{
     font-size: 12px;
 }
