@@ -9,11 +9,11 @@ export function getAllFactoryInfos() {
     return axios.get(apiConf.url + '/fphp/factory/factory_info.php', {params: {}});
 }
 
-export function getFactoryChemicals(fname, date, page) {
+export function getFactoryChemicals(id, date, page) {
     //chemical_list
     return axios.get(apiConf.url + '/fphp/factory/chemical_list.php', {
         params: {
-            fname, date, page
+            id, date, page
         }
     });
 

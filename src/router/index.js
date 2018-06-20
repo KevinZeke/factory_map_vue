@@ -2,6 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import factoryDetail from '../components/factory/factory-detail.vue'
 import factoryInfoModi from '../components/factory/factory-info-modify.vue'
+import factoryAcModi from '../components/factory/factory-account-modify'
+import factoryUpModi from '../components/factory/factory-uodate-info'
+import factoryChemIn from '../components/factory/factory-chem-in'
 import login from '../components/login'
 import mapCtrl from '../components/mapCtrl'
 import facManage from '../components/facManage.vue'
@@ -17,19 +20,34 @@ export default new Router({
             component: login
         },
         {
-            path: '/facManage',
+            path: '/facManage/:id',
             name: 'facManage',
             component: facManage,
             children: [
                 {
-                    path: 'factoryDetailManage/:name',
+                    path: 'factoryDetailManage/:id',
                     name: 'factoryDetailManage',
                     component: factoryDetail
                 },
                 {
-                    path: 'factoryInfoModi/:name',
+                    path: 'factoryInfoModi/:id',
                     name: 'factoryInfoModi',
                     component: factoryInfoModi
+                },
+                {
+                    path: 'factoryAcModi/:id',
+                    name: 'factoryAcModi',
+                    component: factoryAcModi
+                },
+                {
+                    path: 'factoryUpModi/:id',
+                    name: 'factoryUpModi',
+                    component: factoryUpModi
+                },
+                {
+                    path: 'factoryChemIn/:id',
+                    name: 'factoryChemIn',
+                    component: factoryChemIn
                 }
             ]
         },
@@ -39,14 +57,14 @@ export default new Router({
             component: mapCtrl,
             children: [
                 {
-                    path: 'factoryDetail/:name',
+                    path: 'factoryDetail/:id',
                     name: 'factoryDetail',
                     component: factoryDetail
                 }
             ]
         },
         {
-            path: '/factoryDetail/:name',
+            path: '/factoryDetail/:id',
             name: 'factoryDetailGlobal',
             component: factoryDetail
         },

@@ -17,7 +17,7 @@
                 @click="changeCurPoint(index,factory.lng,factory.lat)">
                 <span>{{factory.name}}</span>
                 <router-link
-                        :to="{name:'factoryDetail',params:{name:factory.name}}"
+                        :to="{name:'factoryDetail',params:{id:factory.id}}"
                         @click="" class="pull-right btn btn-sm btn-default">
                     详情
                 </router-link>
@@ -41,6 +41,7 @@
         computed: {
             factoryList() {
                 return this.factoryPoints.filter((p) => {
+                    console.log(p);
                     return new RegExp(this.searchValue, 'gi').test(p.name);
                 });
             }

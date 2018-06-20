@@ -174,7 +174,7 @@
             $route(route) {
                 this._routerChangeInit();
                 this._getChemicalsList(
-                    route.params.name,
+                    route.params.id,
                     this.getFomattedTime(),
                     this.currentPage
                 );
@@ -182,7 +182,7 @@
             valueMon(val) {
                 this.currentPage = 1;
                 this._getChemicalsList(
-                    this.$route.params.name,
+                    this.$route.params.id,
                     new Date(val).Format('yyyy-MM'),
                     this.currentPage
                 );
@@ -190,7 +190,7 @@
             valueDate(val) {
                 this.currentPage = 1;
                 this._getChemicalsList(
-                    this.$route.params.name,
+                    this.$route.params.id,
                     [
                         new Date(val[0]).Format('yyyy-MM-dd'),
                         new Date(val[1]).Format('yyyy-MM-dd')
@@ -208,10 +208,10 @@
 //            );
         },
         methods: {
-            _getChemicalsList(fname, curTime, curPage) {
-                console.log(fname, curTime, curPage)
+            _getChemicalsList(id, curTime, curPage) {
+                console.log(id, curTime, curPage)
 
-                getFactoryChemicals(fname, curTime, curPage).then((resp) => {
+                getFactoryChemicals(id, curTime, curPage).then((resp) => {
                     //console.log(resp.data);
                     this.chemicalsList = resp.data.list;
                     this.totalList = resp.data.totalList;
@@ -223,7 +223,7 @@
                 setTimeout(() => {
                     this.chemicalData = {
                         title: {
-                            text: this.$route.params.name + cname + '存储量柱状图'
+                            text: cname + '存储量柱状图'
                         },
                         tooltip: {},
                         xAxis: {data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]},
@@ -278,7 +278,7 @@
 
             pageOnChange(curPage) {
                 this._getChemicalsList(
-                    this.$route.params.name,
+                    this.$route.params.id,
                     this.getFomattedTime(),
                     curPage
                 );

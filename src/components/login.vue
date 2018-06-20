@@ -30,7 +30,7 @@
         created() {
             if (true) {
                 //this.jump();
-                this.$router.push({name: 'facManage'})
+                // this.$router.push({name: 'facManage'})
             }
         },
         mounted(){
@@ -50,10 +50,9 @@
                             content: res.data.msg || '未知错误'
                         });
                     } else if (res.data.code == apiConf.successCode) {
-                        //this.$router.push({name: 'mapCtrl'});
                         console.log(res.data.data);
                         if(res.data.data.type == 0){
-                            this.$router.push({name: 'dataIn'});
+                            this.$router.push({name: 'facManage',params:{id:res.data.data.id}});
                         }
                     }
                 })

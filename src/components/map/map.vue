@@ -39,7 +39,7 @@
                         that.$router.push({
                             name:'factoryDetail',
                             params:{
-                                name:info.name
+                                id:info.id
                             }
                         })
                     })

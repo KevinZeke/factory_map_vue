@@ -13,7 +13,7 @@
                     <a class="navbar-brand" href="#">厂商信息管理页</a>
                 </div>
 
-                <div class="nav navbar-nav navbar-right logout">
+                <div @click="logout" class="nav navbar-nav navbar-right logout">
                     <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                     <span>注销</span>
                 </div>
@@ -27,32 +27,34 @@
 
                     <li class="axq">管理</li>
                     <li class="pa">
-                        <a class="oy active" href="index.html">
+                        <router-link  class="oy active"
+                                      :to="{name:'factoryChemIn',params:{id:$route.params.id}}">
                             化学品录入
-                        </a>
+                        </router-link>
                     </li>
                     <li class="pa">
                         <router-link class="oy "
-                                     :to="{name:'factoryInfoModi',params:{name:'A'}}">
+                                     :to="{name:'factoryInfoModi',params:{id:$route.params.id}}">
                             厂商信息修改
                         </router-link>
                     </li>
                     <li class="pa">
-                        <a class="oy " href="fluid/index.html">
+                        <router-link :to="{name:'factoryAcModi',params:{id:$route.params.id}}" class="oy " href="fluid/index.html">
                             账号密码修改
-                        </a>
+                        </router-link>
                     </li>
 
                     <li class="axq">数据</li>
                     <li class="pa">
-                        <router-link :to="{name:'factoryDetailManage',params:{name:'A'}}" class="oy " href="docs/index.html">
+                        <router-link :to="{name:'factoryDetailManage',params:{id:$route.params.id}}" class="oy " href="docs/index.html">
                             化学品数据
                         </router-link>
                     </li>
                     <li class="pa">
-                        <a class="oy" href="http://getbootstrap.com" target="blank">
+                        <router-link class="oy"
+                                     :to="{name:'factoryUpModi',params:{id:$route.params.id}}">
                             更新记录
-                        </a>
+                        </router-link>
                     </li>
                 </ul>
             </div>
@@ -69,6 +71,15 @@
     import factoryinfoModi from '../components/factory/factory-info-modify.vue'
     export default {
         name: "facManage",
+        created(){
+            console.log(this.$route.params.id);
+            this.$router.push({name:'factoryUpModi',params:{id:this.$route.params.id}});
+        },
+        methods:{
+            logout(){
+                this.$router.push({name:'login'});
+            }
+        },
         components:{factoryDetail,factoryinfoModi}
     }
 </script>
