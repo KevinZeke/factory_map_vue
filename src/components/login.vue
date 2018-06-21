@@ -19,8 +19,11 @@
 
     import {userLogin} from "../api/user";
     import apiConf from "../api/api.conf";
+    import {mapMutations} from 'vuex'
+
     export default {
         name: "login",
+
         data() {
             return {
                 username: '',
@@ -31,12 +34,15 @@
             if (true) {
                 //this.jump();
                 // this.$router.push({name: 'facManage'})
+                this.setUser({name:'123'});
+
             }
         },
-        mounted(){
+        mounted() {
             this.threeWave('loginMain');
         },
         methods: {
+            ...mapMutations(['setUser']),
             jump() {
                 this.formCheck() && this.login(this.username, this.pwd)
                 //&& this.$router.push({name: 'mapCtrl'});
@@ -51,8 +57,8 @@
                         });
                     } else if (res.data.code == apiConf.successCode) {
                         console.log(res.data.data);
-                        if(res.data.data.type == 0){
-                            this.$router.push({name: 'facManage',params:{id:res.data.data.id}});
+                        if (res.data.data.type == 0) {
+                            this.$router.push({name: 'facManage', params: {id: res.data.data.id}});
                         }
                     }
                 })
@@ -74,7 +80,7 @@
                 }
                 return true;
             },
-            threeWave(id){
+            threeWave(id) {
                 var SEPARATION = 90,
                     AMOUNTX = 50,
                     AMOUNTY = 40;
@@ -114,7 +120,7 @@
                     var material = new THREE.ParticleCanvasMaterial({
 
                         color: 0xe1e1e1,
-                        program: function(context) {
+                        program: function (context) {
 
                             context.beginPath();
                             context.arc(0, 0, .6, 0, PI2, true);

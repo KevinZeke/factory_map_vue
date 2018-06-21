@@ -26,19 +26,25 @@
 
 
                     <li class="axq">管理</li>
-                    <li class="pa">
+                    <li class="pa"
+                        :class="{active:0==curIndex}"
+                        @click="changeCurIndex(0)">
                         <router-link class="oy active"
                                      :to="{name:'factoryChemIn',params:{id:$route.params.id}}">
                             化学品录入
                         </router-link>
                     </li>
-                    <li class="pa">
+                    <li class="pa"
+                        :class="{active:1==curIndex}"
+                        @click="changeCurIndex(1)">
                         <router-link class="oy "
                                      :to="{name:'factoryInfoModi',params:{id:$route.params.id}}">
                             厂商信息修改
                         </router-link>
                     </li>
-                    <li class="pa">
+                    <li class="pa"
+                        :class="{active:2==curIndex}"
+                        @click="changeCurIndex(2)">
                         <router-link :to="{name:'factoryAcModi',params:{id:$route.params.id}}" class="oy "
                                      href="fluid/index.html">
                             账号密码修改
@@ -46,13 +52,17 @@
                     </li>
 
                     <li class="axq">数据</li>
-                    <li class="pa">
+                    <li class="pa"
+                        :class="{active:3==curIndex}"
+                        @click="changeCurIndex(3)">
                         <router-link :to="{name:'factoryDetailManage',params:{id:$route.params.id}}" class="oy "
                                      href="docs/index.html">
                             化学品数据
                         </router-link>
                     </li>
-                    <li class="pa active">
+                    <li class="pa"
+                        :class="{active:4==curIndex}"
+                        @click="changeCurIndex(4)">
                         <router-link class="oy"
                                      :to="{name:'factoryUpModi',params:{id:$route.params.id}}">
                             更新记录
@@ -78,7 +88,7 @@
         name: "facManage",
         data() {
             return {
-                curIndex: 0
+                curIndex: 4
             }
         },
         created() {
@@ -88,6 +98,9 @@
         methods: {
             logout() {
                 this.$router.push({name: 'login'});
+            },
+            changeCurIndex(idx){
+                this.curIndex = idx;
             }
         },
         components: {factoryDetail, factoryinfoModi}
