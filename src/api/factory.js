@@ -9,6 +9,13 @@ export function getAllFactoryInfos() {
     return axios.get(apiConf.url + '/fphp/factory/factory_info.php', {params: {}});
 }
 
+/**
+ * 获取单个工厂信息
+ */
+export function getFactoryInfo(id) {
+    return axios.get(apiConf.url + '/fphp/factory/factory_info.php', {params: {id}});
+}
+
 export function getFactoryChemicals(id, date, page) {
     //chemical_list
     return axios.get(apiConf.url + '/fphp/factory/chemical_list.php', {

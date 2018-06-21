@@ -17,15 +17,22 @@
 
 <script>
     import {getAllFactoryInfos} from '../api/factory'
+    import apiConf from '../api/api.conf'
     import bMap from '../components/map/map.vue'
     import ctrlList from '../components/control/ctrl-list.vue'
     import ctrlHead1 from '../components/control/ctrl-head-1.vue'
     import ctrlHead2 from '../components/control/ctrl-head-2.vue'
     import ctrlRight from '../components/control/ctrl-right.vue'
     import {loginCheck} from "../api/user";
+    import {mapGetters} from 'vuex'
 
     export default {
         name: 'mapCtrl',
+        computed: {
+            ...mapGetters([
+                'userinfo'
+            ])
+        },
         data() {
             return {
                 curPoint: null,
@@ -34,16 +41,37 @@
         },
         created() {
             loginCheck().then(function (res) {
-                console.log(res.data);
+                //console.log(res.data);
             })
-            this._getFactoryInfos();
+            //console.log(this.userinfo);
+            if (true || this.userinfo && this.userinfo == 1) {
+                this._getFactoryInfos();
+            }
+            else {
+                this.$Modal.error({
+                    title: '权限错误',
+                    content: '您的账号没有权限浏览此页面'
+                });
+                //this.$router.push({path: '/'});
+            }
         },
-        mounted(){},
+        mounted() {
+        },
         methods: {
             //获取全部工厂信息
             _getFactoryInfos() {
                 getAllFactoryInfos().then((resp) => {
-                    this.factoryInfos = resp.data;
+                    if (resp.data.code == apiConf.successCode) {
+                        this.factoryInfos = resp.data.data.filter(function (item) {
+                            item.count = 52;
+                            return true;
+                        });
+                    } else {
+                        this.$Modal.error({
+                            title: '数据获取错误',
+                            content: resp.data.msg || '未知错误'
+                        });
+                    }
                 }).catch((err) => {
                     console.log(err);
                     this.$Modal.error({

@@ -1,25 +1,6 @@
 <template>
     <div class="wrap">
-        <nav class="navbar navbar-default navbar-inverse">
-            <div class="container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                            data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">厂商信息管理页</a>
-                </div>
-
-                <div @click="logout" class="nav navbar-nav navbar-right logout">
-                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                    <span>注销</span>
-                </div>
-            </div><!-- /.container-fluid -->
-        </nav>
+        <manage-header :brand="'化工单位管理界面'"></manage-header>
         <div class="facManage container">
             <div class="left col-lg-2 col-md-2 hidden-sm hidden-xs">
                 <ul class="nav pb nav-stacked wz">
@@ -30,7 +11,7 @@
                         :class="{active:0==curIndex}"
                         @click="changeCurIndex(0)">
                         <router-link class="oy active"
-                                     :to="{name:'factoryChemIn',params:{id:$route.params.id}}">
+                                     :to="{name:'factoryChemIn'}">
                             化学品录入
                         </router-link>
                     </li>
@@ -38,14 +19,14 @@
                         :class="{active:1==curIndex}"
                         @click="changeCurIndex(1)">
                         <router-link class="oy "
-                                     :to="{name:'factoryInfoModi',params:{id:$route.params.id}}">
+                                     :to="{name:'factoryInfoModi'}">
                             厂商信息修改
                         </router-link>
                     </li>
                     <li class="pa"
                         :class="{active:2==curIndex}"
                         @click="changeCurIndex(2)">
-                        <router-link :to="{name:'factoryAcModi',params:{id:$route.params.id}}" class="oy "
+                        <router-link :to="{name:'factoryAcModi'}" class="oy "
                                      href="fluid/index.html">
                             账号密码修改
                         </router-link>
@@ -55,8 +36,7 @@
                     <li class="pa"
                         :class="{active:3==curIndex}"
                         @click="changeCurIndex(3)">
-                        <router-link :to="{name:'factoryDetailManage',params:{id:$route.params.id}}" class="oy "
-                                     href="docs/index.html">
+                        <router-link :to="{name:'factoryDetailManage',params:{id:$route.params.id}}" class="oy ">
                             化学品数据
                         </router-link>
                     </li>
@@ -64,7 +44,7 @@
                         :class="{active:4==curIndex}"
                         @click="changeCurIndex(4)">
                         <router-link class="oy"
-                                     :to="{name:'factoryUpModi',params:{id:$route.params.id}}">
+                                     :to="{name:'factoryUpModi'}">
                             更新记录
                         </router-link>
                     </li>
@@ -83,6 +63,7 @@
 <script>
     import factoryDetail from '../components/factory/factory-detail.vue'
     import factoryinfoModi from '../components/factory/factory-info-modify.vue'
+    import manageHeader from '../components/manage/manage-header';
 
     export default {
         name: "facManage",
@@ -96,14 +77,12 @@
             this.$router.push({name: 'factoryUpModi', params: {id: this.$route.params.id}});
         },
         methods: {
-            logout() {
-                this.$router.push({name: 'login'});
-            },
-            changeCurIndex(idx){
+
+            changeCurIndex(idx) {
                 this.curIndex = idx;
             }
         },
-        components: {factoryDetail, factoryinfoModi}
+        components: {factoryDetail, factoryinfoModi, manageHeader}
     }
 </script>
 
@@ -132,14 +111,6 @@
 
     .nav li.active {
         background-color: rgb(109, 116, 135);
-    }
-
-    .logout {
-        color: #e2e2e2;
-        font-size: 1.2em;
-        padding: 15px;
-        box-sizing: border-box;
-        cursor: pointer;
     }
 
     .right {

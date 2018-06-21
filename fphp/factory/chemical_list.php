@@ -7,7 +7,7 @@
 require_once '../common/header.php';
 require_once '../common/util.php';
 
-$fname = array_get($_GET, 'fname');
+$fname = array_get($_GET, 'id');
 $page = array_get($_GET, 'page');
 $date = array_get($_GET, 'date');
 

@@ -8,6 +8,7 @@ import factoryChemIn from '../components/factory/factory-chem-in'
 import login from '../components/login'
 import mapCtrl from '../components/mapCtrl'
 import facManage from '../components/facManage.vue'
+import adminManage from '../components/adminManage'
 import noData from '../components/factory/nodata.vue'
 
 Vue.use(Router)
@@ -20,6 +21,11 @@ export default new Router({
             component: login
         },
         {
+            path: '/adminManage',
+            name: 'adminManage',
+            component: adminManage
+        },
+        {
             path: '/facManage/:id',
             name: 'facManage',
             component: facManage,
@@ -30,22 +36,22 @@ export default new Router({
                     component: factoryDetail
                 },
                 {
-                    path: 'factoryInfoModi/:id',
+                    path: 'factoryInfoModi',
                     name: 'factoryInfoModi',
                     component: factoryInfoModi
                 },
                 {
-                    path: 'factoryAcModi/:id',
+                    path: 'factoryAcModi',
                     name: 'factoryAcModi',
                     component: factoryAcModi
                 },
                 {
-                    path: 'factoryUpModi/:id',
+                    path: 'factoryUpModi',
                     name: 'factoryUpModi',
                     component: factoryUpModi
                 },
                 {
-                    path: 'factoryChemIn/:id',
+                    path: 'factoryChemIn',
                     name: 'factoryChemIn',
                     component: factoryChemIn
                 }

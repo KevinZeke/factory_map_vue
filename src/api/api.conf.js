@@ -6,6 +6,9 @@ export default {
 
     url: macurl,
     errorCode: 0,
-    successCode: 1
+    successCode: 1,
+
+    normalUserType: 0,
+    superUserType: 1
 
 }

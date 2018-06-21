@@ -41,7 +41,7 @@
         computed: {
             factoryList() {
                 return this.factoryPoints.filter((p) => {
-                    console.log(p);
+                    //console.log(p);
                     return new RegExp(this.searchValue, 'gi').test(p.name);
                 });
             }

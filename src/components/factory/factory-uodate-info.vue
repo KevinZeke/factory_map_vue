@@ -122,7 +122,7 @@
 
 <script>
     import eline from '../../chart/line'
-
+    import {mapGetters} from 'vuex'
     export default {
         name: "factory-uodate-info",
         data() {
@@ -198,6 +198,11 @@
                 };
             }
         },
+        computed: {
+            ...mapGetters([
+                'userinfo'
+            ])
+        },
         components: {eline}
     }
 </script>
@@ -209,6 +214,15 @@
         height: 400px;
         color: #c7cad1;
         margin-bottom: 15px;
+    }
+    .update-chart{
+        background-color: rgba(45, 39, 39, 0.7);
+
+    }
+
+    .update-chart:hover{
+        /*background-color: rgba(33, 27, 27, 0.9);*/
+
     }
 
     .update-table table {

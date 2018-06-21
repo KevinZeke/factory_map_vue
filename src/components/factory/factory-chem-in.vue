@@ -65,6 +65,7 @@
 </template>
 
 <script>
+    import {mapGetters} from 'vuex'
     export default {
         name: "factory-chem-in",
         data() {
@@ -76,6 +77,11 @@
             uploadHelp() {
                 this.showHelp = true;
             }
+        },
+        computed: {
+            ...mapGetters([
+                'userinfo'
+            ])
         }
     }
 </script>

@@ -34,7 +34,7 @@
             if (true) {
                 //this.jump();
                 // this.$router.push({name: 'facManage'})
-                this.setUser({name:'123'});
+
 
             }
         },
@@ -57,8 +57,11 @@
                         });
                     } else if (res.data.code == apiConf.successCode) {
                         console.log(res.data.data);
-                        if (res.data.data.type == 0) {
+                        this.setUser(res.data.data);
+                        if (res.data.data.type == apiConf.normalUserType) {
                             this.$router.push({name: 'facManage', params: {id: res.data.data.id}});
+                        } else if (res.data.data.type == apiConf.superUserType) {
+                            this.$router.push({name: 'adminManage'});
                         }
                     }
                 })
