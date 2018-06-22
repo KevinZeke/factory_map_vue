@@ -9,6 +9,9 @@ import login from '../components/login'
 import mapCtrl from '../components/mapCtrl'
 import facManage from '../components/facManage.vue'
 import adminManage from '../components/adminManage'
+import adminStatistics from '../components/admin/admin-statistics.vue'
+import adminHome from '../components/admin/admin-home.vue'
+import errorDirect from '../components/404.vue'
 import noData from '../components/factory/nodata.vue'
 
 Vue.use(Router)
@@ -22,11 +25,27 @@ export default new Router({
         },
         {
             path: '/adminManage',
-            name: 'adminManage',
-            component: adminManage
+            //name: 'adminManage',
+            component: adminManage,
+            children: [
+                {
+                    path: '',
+                    redirect: 'adminHome'
+                },
+                {
+                    path: 'adminHome',
+                    name: 'adminHome',
+                    component: adminHome
+                },
+                {
+                    path: 'adminStatistics',
+                    name: 'adminStatistics',
+                    component: adminStatistics
+                }
+            ]
         },
         {
-            path: '/facManage/:id',
+            path: '/facManage',
             name: 'facManage',
             component: facManage,
             children: [
@@ -78,6 +97,15 @@ export default new Router({
             path: '/nodata',
             name: 'nodata',
             component: noData
+        },
+        {
+            path: '/404',
+            name: '404',
+            component: errorDirect
+        },
+        {
+            path: '*',
+            component: errorDirect
         }
     ]
 })

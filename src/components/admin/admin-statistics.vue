@@ -1,38 +1,34 @@
 <template>
     <div class="wrap">
-        <manage-header :brand="'泰州化工产品实时监控系统管理页面'"></manage-header>
-
-        <router-view></router-view>
-
-        <!--<div class="chem-pie">-->
-        <!--<div class="col-md-4">-->
-        <!--<pie v-if="chartShow" :height="'300px'" :option="chemicalPieData">-->
-        <!--</pie>-->
-        <!--</div>-->
-        <!--<div class="col-md-4">-->
-        <!--<pie v-if="chartShow" :height="'300px'" :option="chemicalPieData">-->
-        <!--</pie>-->
-        <!--</div>-->
-        <!--<div class="col-md-4">-->
-        <!--<pie v-if="chartShow" :height="'300px'" :option="chemicalPieData">-->
-        <!--</pie>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--<div class="chem-bar">-->
-        <!--<bar-->
-        <!--style="margin-top:20px;"-->
-        <!--ref="bar"-->
-        <!--v-if="chartShow"-->
-        <!--:option="chemicalBarData"-->
-        <!--&gt;</bar>-->
-        <!--</div>-->
+        <div class="chem-pie">
+            <div class="col-md-4">
+                <pie v-if="chartShow" :height="'300px'" :option="chemicalPieData">
+                </pie>
+            </div>
+            <div class="col-md-4">
+                <pie v-if="chartShow" :height="'300px'" :option="chemicalPieData">
+                </pie>
+            </div>
+            <div class="col-md-4">
+                <pie v-if="chartShow" :height="'300px'" :option="chemicalPieData">
+                </pie>
+            </div>
+        </div>
+        <div class="chem-bar">
+            <bar
+                    style="margin-top:20px;"
+                    ref="bar"
+                    v-if="chartShow"
+                    :option="chemicalBarData"
+            ></bar>
+        </div>
     </div>
 </template>
 
 <script>
-    import manageHeader from '../components/manage/manage-header'
-    import bar from '../chart/bar'
-    import pie from '../chart/pie'
+    import manageHeader from '../../components/manage/manage-header'
+    import bar from '../../chart/bar'
+    import pie from '../../chart/pie'
 
     export default {
         name: "AdminManage",
@@ -46,11 +42,6 @@
         mounted() {
             this.drawBar();
             this.drawPie();
-            this.$Notice.open({
-                title: '延期提醒',
-                desc: '当前共有4家企业延期提交数据',
-                duration: 10
-            });
         },
         methods: {
             drawBar() {
@@ -224,55 +215,11 @@
         box-shadow: -2px -2px 20px 4px #424242 inset;
     }
 
-    .show-box {
-        padding: 0 15px;
-        height: 120px;
-        margin-bottom: 20px;
-    }
-
-    .box-container {
-        padding: 15px;
-        box-sizing: border-box;
-        height: 100%;
-    }
 
     hr {
         margin: 0;
         padding: 0;
     }
 
-    .box {
-        /*border: 1px solid #fff;*/
-        /*background-color: #fff;*/
-        color: #fff;
-        font-weight: bold;
-        padding: 15px;
-        box-sizing: border-box;
-        border-radius: 5px;
-        height: 100%;
-    }
 
-    .box .num {
-        font-size: 2.2em;
-    }
-
-    .box:hover {
-        transform: scale(1.1, 1.1);
-    }
-
-    .box1 {
-        background-color: #1aca1a;
-    }
-
-    .box2 {
-        background-color: #ff666b;
-    }
-
-    .box3 {
-        background-color: #7a8fb4;
-    }
-
-    .box4 {
-        background-color: #ded23d;
-    }
 </style>

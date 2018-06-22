@@ -36,7 +36,7 @@
                     <li class="pa"
                         :class="{active:3==curIndex}"
                         @click="changeCurIndex(3)">
-                        <router-link :to="{name:'factoryDetailManage',params:{id:$route.params.id}}" class="oy ">
+                        <router-link :to="{name:'factoryDetailManage',params:{id:userinfo.id}}" class="oy ">
                             化学品数据
                         </router-link>
                     </li>
@@ -64,6 +64,7 @@
     import factoryDetail from '../components/factory/factory-detail.vue'
     import factoryinfoModi from '../components/factory/factory-info-modify.vue'
     import manageHeader from '../components/manage/manage-header';
+    import {mapGetters} from 'vuex'
 
     export default {
         name: "facManage",
@@ -71,6 +72,11 @@
             return {
                 curIndex: 4
             }
+        },
+        computed: {
+            ...mapGetters([
+                'userinfo'
+            ])
         },
         created() {
             //console.log(this.$route.params.id);
