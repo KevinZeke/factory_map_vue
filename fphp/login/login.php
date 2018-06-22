@@ -14,13 +14,13 @@ require_once '../common/util.php';
 require_once '../common/Session.class.php';
 
 
-$fname = array_get($_POST, 'username');
+$fname = array_strict_get($_POST, 'username');
 
-$pwd = array_get($_POST, 'pwd');
+$pwd = array_strict_get($_POST, 'pwd');
 
 $tool = get_fmdb_sqltool();
 
-$identity_info_sql = "select pwd,type,name,id from User_info WHERE username =  ? LIMIT 1 ";
+$identity_info_sql = "select pwd,type,name,id,username from Factory_info WHERE username =  ? LIMIT 1 ";
 
 $stmt = $tool->prepare($identity_info_sql);
 

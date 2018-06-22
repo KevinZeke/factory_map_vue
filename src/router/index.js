@@ -11,13 +11,15 @@ import facManage from '../components/facManage.vue'
 import adminManage from '../components/adminManage'
 import adminStatistics from '../components/admin/admin-statistics.vue'
 import adminCtrl from '../components/admin/admin-control.vue'
+import adminCtrlFac from '../components/admin/admin-ctrl-factory'
 import adminHome from '../components/admin/admin-home.vue'
 import errorDirect from '../components/404.vue'
 import noData from '../components/factory/nodata.vue'
+import {adminGuard} from "./guard";
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
     routes: [
         {
             path: '/',
@@ -28,19 +30,29 @@ export default new Router({
             path: '/adminManage',
             //name: 'adminManage',
             component: adminManage,
+            beforeEnter:adminGuard,
             children: [
                 {
                     path: '',
                     redirect: 'adminHome'
                 },
                 {
-                    path:'adminCtrl',
-                    component:adminCtrl,
-                    children:[
+                    path: 'adminCtrl',
+                    component: adminCtrl,
+                    children: [
+                        {
+                            path:'',
+                            redirect:'acModi'
+                        },
                         {
                             path: 'acModi',
                             name: 'acModi',
                             component: factoryAcModi
+                        },
+                        {
+                            path: 'adminCtrlFac',
+                            name: 'adminCtrlFac',
+                            component: adminCtrlFac
                         }
                     ]
                 },
@@ -120,4 +132,7 @@ export default new Router({
             component: errorDirect
         }
     ]
-})
+});
+
+
+export default router;

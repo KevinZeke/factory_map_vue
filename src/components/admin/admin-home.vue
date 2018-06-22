@@ -88,7 +88,8 @@
                         <td>2018-06-11</td>
                         <td>
                             <button @click="showDetail = true"
-                                    class="btn info-btn btn-xs">查看详情</button>
+                                    class="btn info-btn btn-xs">查看详情
+                            </button>
                         </td>
                     </tr>
                     <tr>
@@ -102,7 +103,7 @@
                         <td class="hidden-sm hidden-xs">张一</td>
                         <td>2018-06-11</td>
                         <td>
-                            <button @click="showDetail = true"  class="btn info-btn btn-xs">查看详情</button>
+                            <button @click="showDetail = true" class="btn info-btn btn-xs">查看详情</button>
                         </td>
                     </tr>
                     <tr>
@@ -116,7 +117,7 @@
                         <td class="hidden-sm hidden-xs">王菲</td>
                         <td>2018-06-08</td>
                         <td>
-                            <button @click="showDetail = true"  class="btn info-btn btn-xs">查看详情</button>
+                            <button @click="showDetail = true" class="btn info-btn btn-xs">查看详情</button>
                         </td>
                     </tr>
                     <tr>
@@ -130,7 +131,7 @@
                         <td class="hidden-sm hidden-xs">赵四</td>
                         <td>2018-06-01</td>
                         <td>
-                            <button @click="showDetail = true"  class="btn info-btn btn-xs">查看详情</button>
+                            <button @click="showDetail = true" class="btn info-btn btn-xs">查看详情</button>
                         </td>
                     </tr>
                     <tr>
@@ -144,7 +145,7 @@
                         <td class="hidden-sm hidden-xs">赵五</td>
                         <td>2018-06-20</td>
                         <td>
-                            <button @click="showDetail = true"  class="btn info-btn btn-xs">查看详情</button>
+                            <button @click="showDetail = true" class="btn info-btn btn-xs">查看详情</button>
                         </td>
                     </tr>
                     <tr>
@@ -158,7 +159,7 @@
                         <td class="hidden-sm hidden-xs">赵六</td>
                         <td>2018-06-20</td>
                         <td>
-                            <button @click="showDetail = true"  class="btn info-btn btn-xs">查看详情</button>
+                            <button @click="showDetail = true" class="btn info-btn btn-xs">查看详情</button>
                         </td>
                     </tr>
                     <tr>
@@ -172,7 +173,7 @@
                         <td class="hidden-sm hidden-xs">赵六</td>
                         <td>2018-06-19</td>
                         <td>
-                            <button @click="showDetail = true"  class="btn info-btn btn-xs">查看详情</button>
+                            <button @click="showDetail = true" class="btn info-btn btn-xs">查看详情</button>
                         </td>
                     </tr>
                     <tr>
@@ -267,26 +268,39 @@
 <script>
     import {threeWaveBg} from "../../common/util";
     import pie from '../../chart/pie.vue'
+    import {mapGetters} from 'vuex'
+    import apiConf from '../../api/api.conf'
 
     export default {
         data() {
             return {
                 pieData: null,
-                carouseIndex:0,
-                showDetail:false,
-                modalTitle:'厂家信息',
-                delayInfo:[]
+                carouseIndex: 0,
+                showDetail: false,
+                modalTitle: '厂家信息',
+                delayInfo: []
             }
+        },
+        created() {
+            // console.log(this.userinfo);
+            // if (!this.userinfo.type == apiConf.superUserType) {
+            //     this.$router.push({path: '/404'});
+            // }
         },
         mounted() {
             setTimeout(() => {
                 this.drawPie();
-            },400)
-            threeWaveBg(
-                'admin-home-wrap-hook', {s: 100, x: 30, y: 30}, function (dom) {
-                    //dom.id = 'wave';
-                    dom.style.opacity = '0.18';
-                });
+            }, 400)
+            // threeWaveBg(
+            //     'admin-home-wrap-hook', {s: 100, x: 30, y: 30}, function (dom) {
+            //         //dom.id = 'wave';
+            //         dom.style.opacity = '0.18';
+            //     });
+        },
+        computed: {
+            ...mapGetters([
+                'userinfo'
+            ])
         },
         methods: {
             drawPie() {
@@ -365,7 +379,7 @@
                     ]
                 };
             },
-            getDelayInfo(){
+            getDelayInfo() {
                 this.delayInfo = [];
             }
         },
@@ -423,7 +437,8 @@
         margin-top: -15px;
         padding: 0;
     }
-    h4{
+
+    h4 {
         font-weight: 600;
     }
 
@@ -475,7 +490,8 @@
     a:hover {
         text-decoration: none;
     }
-    .carouse-item{
+
+    .carouse-item {
         height: 100%;
         width: 100%;
     }

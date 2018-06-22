@@ -35,6 +35,9 @@
     import manageHeader from '../components/manage/manage-header'
     import bar from '../chart/bar'
     import pie from '../chart/pie'
+    import apiConf from "../api/api.conf";
+    import {mapGetters} from 'vuex'
+
 
     export default {
         name: "AdminManage",
@@ -44,6 +47,14 @@
                 chemicalBarData: {},
                 chemicalPieData: {}
             }
+        },
+        created(){
+
+        },
+        computed: {
+            ...mapGetters([
+                'userinfo'
+            ])
         },
         mounted() {
             this.drawBar();
@@ -56,6 +67,7 @@
         },
         methods: {
             drawBar() {
+                //console.log('drawBar');
                 this.chemicalBarData = {
                     title: {},
                     tooltip: {

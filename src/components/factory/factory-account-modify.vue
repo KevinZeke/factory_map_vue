@@ -2,7 +2,7 @@
     <form class=" col-md-10 col-lg-10 col-md-push-1 col-lg-push-1 form" @submit.prevent>
         <div class="form-group">
             <label for="InputName">用户名</label>
-            <input class="form-control" id="InputName" placeholder="用户名">
+            <input class="form-control" v-model="username" id="InputName" placeholder="用户名">
         </div>
         <div class="form-group">
             <label for="InputPwd">密码</label>
@@ -20,10 +20,17 @@
     import {mapGetters} from 'vuex'
 
     export default {
+        data() {
+            return {
+                username: ''
+            }
+        },
+        created() {
+            console.log(this.userinfo);
+            this.username = this.userinfo.username || ''
+        },
         computed: {
-            ...mapGetters([
-                'userinfo'
-            ])
+            ...mapGetters(['userinfo'])
         }
     }
 </script>

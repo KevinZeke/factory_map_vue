@@ -21,9 +21,9 @@
             content: {type: String, default: '请检查地址是否正确或尝试重新登录'}
         },
         mounted() {
-            threeWaveBg('code404',function (dom) {
-                dom.style.opacity = '0.6';
-            });
+            // threeWaveBg('code404',function (dom) {
+            //     dom.style.opacity = '0.6';
+            // });
         }
     }
 </script>

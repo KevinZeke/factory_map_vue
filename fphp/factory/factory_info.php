@@ -15,7 +15,9 @@ $id = array_get($_GET, 'id');
 $tool = get_fmdb_sqltool();
 
 if (!$id) {
-    $data = $tool->execute_dql_res('SELECT * FROM Factory_info')->to_array_list();
+    $data = $tool->execute_dql_res(
+        'SELECT name,id,fdesc,fr,lng,lat,tel,addr FROM Factory_info'
+    )->to_array_list();
 } else {
 
     $info_sql = "SELECT * FROM Factory_info where id =  ? LIMIT 1 ";
@@ -30,8 +32,8 @@ if (!$id) {
 if (count($data) == 0) {
     echo RespUtil::error_json("无数据");
     exit();
-}else{
-    echo RespUtil::success_json('',$data);
+} else {
+    echo RespUtil::success_json('', $data);
 }
 
 

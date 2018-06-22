@@ -58,6 +58,8 @@
     import bar from '../../chart/bar'
     import pie from '../../chart/pie'
     import datepicker from '../../base/date-selector/datepicker'
+    import {mapGetters} from 'vuex'
+    import apiConf from "../../api/api.conf";
 
     export default {
         name: "AdminManage",
@@ -67,6 +69,11 @@
                 chemicalBarData: {},
                 chemicalPieData: {}
             }
+        },
+        created(){
+            // if (!this.userinfo.type == apiConf.superUserType) {
+            //     this.$router.push({path: '/404'});
+            // }
         },
         mounted() {
             this.drawBar();
@@ -224,6 +231,11 @@
             timeOnChange(curTime){
                 //alert(JSON.stringify(curTime));
             }
+        },
+        computed: {
+            ...mapGetters([
+                'userinfo'
+            ])
         },
         components: {manageHeader, bar, pie,datepicker}
     }

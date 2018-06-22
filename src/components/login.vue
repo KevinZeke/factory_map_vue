@@ -44,9 +44,9 @@
             }
         },
         mounted() {
-            threeWaveBg('loginMain',function (dom) {
-                dom.style.opacity = '0.6';
-            });
+            // threeWaveBg('loginMain',function (dom) {
+            //     dom.style.opacity = '0.6';
+            // });
         },
         methods: {
             ...mapMutations(['setUser']),

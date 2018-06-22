@@ -14,7 +14,7 @@
                 </div>
             </div>
             <div class="left col-lg-2 col-md-2 hidden-sm hidden-xs">
-                <ul class="nav pb nav-stacked wz">
+                <ul class="nav pb nav-stacked wz nav-menu">
 
 
                     <li class="axq">厂商管理</li>
@@ -22,7 +22,7 @@
                         :class="{active:0==curIndex}"
                         @click="changeCurIndex(0)">
                         <router-link class="oy active"
-                                     :to="{name:'factoryChemIn'}">
+                                     :to="{name:'adminCtrlFac'}">
                             厂商信息管理
                         </router-link>
                     </li>
@@ -51,6 +51,7 @@
 
 <script>
     import {mapGetters} from 'vuex'
+    import apiConf from "../../api/api.conf";
 
     export default {
         name: "adminControl",
@@ -65,7 +66,9 @@
             ])
         },
         created() {
-
+            // if (!this.userinfo.type == apiConf.superUserType) {
+            //     this.$router.push({path: '/404'});
+            // }
         },
         methods: {
 
@@ -97,6 +100,7 @@
 
     .nav li {
         border-radius: 5px;
+        margin-bottom: 10px;
         color: rgb(207, 210, 218);
     }
 
