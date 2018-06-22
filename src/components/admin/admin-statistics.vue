@@ -1,6 +1,29 @@
 <template>
     <div class="wrap">
-        <div class="chem-pie">
+        <div class="">
+            <div class="span6">
+                <ul class="breadcrumb"
+                    style="padding-left: 50px;box-sizing: border-box">
+                    <li>
+                        <router-link
+                                :to="{path:'/adminManage'}">主页</router-link>
+                        <span class="divider">></span>
+                    </li>
+                    <li class="active">统计</li>
+                </ul>
+            </div>
+        </div>
+        <div class="datepicker clearfix">
+            <div class="col-md-6 col-md-offset-6">
+                <datepicker @timeChange="timeOnChange"></datepicker>
+            </div>
+        </div>
+        <div class="order">
+            <span style="white-space:pre;">  </span><span class="line"></span>
+            <span style="white-space:pre;">  </span><span class="txt">功能导航</span>
+            <span style="white-space:pre;">  </span><span class="line"></span>
+        </div>
+        <div class="chem-pie ">
             <div class="col-md-4">
                 <pie v-if="chartShow" :height="'300px'" :option="chemicalPieData">
                 </pie>
@@ -14,7 +37,12 @@
                 </pie>
             </div>
         </div>
-        <div class="chem-bar">
+        <div class="order">
+            <span style="white-space:pre;">  </span><span class="line"></span>
+            <span style="white-space:pre;">  </span><span class="txt">功能导航</span>
+            <span style="white-space:pre;">  </span><span class="line"></span>
+        </div>
+        <div class="chem-bar ">
             <bar
                     style="margin-top:20px;"
                     ref="bar"
@@ -29,6 +57,7 @@
     import manageHeader from '../../components/manage/manage-header'
     import bar from '../../chart/bar'
     import pie from '../../chart/pie'
+    import datepicker from '../../base/date-selector/datepicker'
 
     export default {
         name: "AdminManage",
@@ -191,15 +220,26 @@
                         }
                     ]
                 };
+            },
+            timeOnChange(curTime){
+                //alert(JSON.stringify(curTime));
             }
         },
-        components: {manageHeader, bar, pie}
+        components: {manageHeader, bar, pie,datepicker}
     }
 </script>
 
 <style scoped>
     h3 {
         /*color: yellow;*/
+    }
+
+    .datepicker{
+        width: 100%;
+    }
+
+    *{
+        box-sizing: border-box;
     }
 
     .chem-pie {

@@ -2,7 +2,9 @@
     <div class="wrap">
         <manage-header :brand="'泰州化工产品实时监控系统管理页面'"></manage-header>
 
-        <router-view></router-view>
+        <keep-alive>
+            <router-view></router-view>
+        </keep-alive>
 
         <!--<div class="chem-pie">-->
         <!--<div class="col-md-4">-->

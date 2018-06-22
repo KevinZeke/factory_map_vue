@@ -1,5 +1,9 @@
 <template>
     <div class="container" id="loginMain">
+        <h2>
+            <Icon color="red" type="fireball"></Icon>
+            &nbsp;
+            泰州消防支队</h2>
         <form class="col-md-6 col-md-push-3" @submit.prevent="jump">
             <div class="form-group">
                 <label for="InputUser">用户名</label>
@@ -40,7 +44,9 @@
             }
         },
         mounted() {
-            threeWaveBg('loginMain');
+            threeWaveBg('loginMain',function (dom) {
+                dom.style.opacity = '0.6';
+            });
         },
         methods: {
             ...mapMutations(['setUser']),
@@ -92,12 +98,12 @@
 
     div.container {
         color: #fff;
-        padding-top: 20%;
+        /*padding-top: 20%;*/
         overflow: hidden;
     }
 
     form {
-        margin: 0 auto;
+        margin: 15% auto 0;
         z-index: 99;
         font-size: 1.2em;
     }

@@ -45,6 +45,6 @@
 
     .box h4 {
         padding-bottom: 15px;
-        border-bottom: 1px solid #a1a1a1;
+        border-bottom: 1px solid #5d5d5d;
     }
 </style>

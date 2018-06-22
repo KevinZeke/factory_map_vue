@@ -10,6 +10,7 @@ import mapCtrl from '../components/mapCtrl'
 import facManage from '../components/facManage.vue'
 import adminManage from '../components/adminManage'
 import adminStatistics from '../components/admin/admin-statistics.vue'
+import adminCtrl from '../components/admin/admin-control.vue'
 import adminHome from '../components/admin/admin-home.vue'
 import errorDirect from '../components/404.vue'
 import noData from '../components/factory/nodata.vue'
@@ -31,6 +32,17 @@ export default new Router({
                 {
                     path: '',
                     redirect: 'adminHome'
+                },
+                {
+                    path:'adminCtrl',
+                    component:adminCtrl,
+                    children:[
+                        {
+                            path: 'acModi',
+                            name: 'acModi',
+                            component: factoryAcModi
+                        }
+                    ]
                 },
                 {
                     path: 'adminHome',

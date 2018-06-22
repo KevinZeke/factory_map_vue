@@ -1,18 +1,18 @@
-Date.prototype.Format = function(fmt) { //
+Date.prototype.Format = function (fmt) { //
     let o = {
-        "M+" : this.getMonth()+1,                 //月份
-        "d+" : this.getDate(),                    //日
-        "h+" : this.getHours(),                   //小时
-        "m+" : this.getMinutes(),                 //分
-        "s+" : this.getSeconds(),                 //秒
-        "q+" : Math.floor((this.getMonth()+3)/3), //季度
-        "S"  : this.getMilliseconds()             //毫秒
+        "M+": this.getMonth() + 1,                 //月份
+        "d+": this.getDate(),                    //日
+        "h+": this.getHours(),                   //小时
+        "m+": this.getMinutes(),                 //分
+        "s+": this.getSeconds(),                 //秒
+        "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+        "S": this.getMilliseconds()             //毫秒
     };
-    if(/(y+)/.test(fmt))
-        fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));
-    for(var k in o)
-        if(new RegExp("("+ k +")").test(fmt))
-            fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));
+    if (/(y+)/.test(fmt))
+        fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+    for (var k in o)
+        if (new RegExp("(" + k + ")").test(fmt))
+            fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
     return fmt;
 }
 
@@ -34,23 +34,29 @@ export function isSupportCanvas() {
 export function getLastDay(year, month) {
     var new_year = year; //取当前的年份
     var new_month = month++; //取下一个月的第一天，方便计算（最后一天不固定）
-    if(month > 12) //如果当前大于12月，则年份转到下一年
+    if (month > 12) //如果当前大于12月，则年份转到下一年
     {
         new_month -= 12; //月份减
         new_year++; //年份增
     }
     var new_date = new Date(new_year, new_month, 1); //取当年当月中的第一天
-    return(new Date(new_date.getTime() - 1000 * 60 * 60 * 24)).getDate();
+    return (new Date(new_date.getTime() - 1000 * 60 * 60 * 24)).getDate();
 }
 
 /**
  *
  * @param String id
  */
-export function threeWaveBg(id) {
-    var SEPARATION = 80,
-        AMOUNTX = 50,
-        AMOUNTY = 40;
+export function threeWaveBg(id, conf, wavDomCallback) {
+    if (!id) return;
+    if (!conf || typeof conf == 'function') {
+        wavDomCallback = conf;
+        conf = {};
+    }
+
+    var SEPARATION = conf.s || 80,
+        AMOUNTX = conf.x || 50,
+        AMOUNTY = conf.y || 30;
 
     var container;
     var camera, scene, renderer;
@@ -76,6 +82,12 @@ export function threeWaveBg(id) {
         container.style.overflow = 'hidden';
         container.style.top = '0';
         container.style.left = '0';
+        container.style.zIndex = '-1';
+
+        if (wavDomCallback && typeof wavDomCallback == 'function') {
+            wavDomCallback(container);
+        }
+        //container.style.opacity = '0.2';
 
         camera = new THREE.PerspectiveCamera(120, window.innerWidth / window.innerHeight, 1, 10000);
         camera.position.z = 1000;
