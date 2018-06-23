@@ -3,7 +3,8 @@
         <h2>
             <Icon color="red" type="fireball"></Icon>
             &nbsp;
-            泰州消防支队</h2>
+            泰州消防支队
+        </h2>
         <form class="col-md-6 col-md-push-3" @submit.prevent="jump">
             <div class="form-group">
                 <label for="InputUser">用户名</label>
@@ -44,9 +45,9 @@
             }
         },
         mounted() {
-            // threeWaveBg('loginMain',function (dom) {
-            //     dom.style.opacity = '0.6';
-            // });
+            threeWaveBg('loginMain', function (dom) {
+                dom.style.opacity = '0.6';
+            });
         },
         methods: {
             ...mapMutations(['setUser']),
@@ -55,6 +56,9 @@
                 //&& this.$router.push({name: 'mapCtrl'});
             },
             login(u, p) {
+                this.$Modal.info({
+                    content: '正在登陆...'
+                });
                 userLogin(u, p).then((res) => {
                     //console.log(res.data);
                     if (res.data.code == apiConf.errorCode) {
@@ -65,8 +69,11 @@
                     } else if (res.data.code == apiConf.successCode) {
                         console.log(res.data.data);
                         this.setUser(res.data.data);
+                        this.$Modal.remove();
                         if (res.data.data.type == apiConf.normalUserType) {
-                            this.$router.push({name: 'facManage', params: {id: res.data.data.id}});
+                            this.$router.push(
+                                {name: 'facManage', params: {id: res.data.data.id}}
+                            );
                         } else if (res.data.data.type == apiConf.superUserType) {
                             this.$router.push({path: '/adminManage'});
                         }

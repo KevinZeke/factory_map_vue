@@ -26,6 +26,33 @@ body {
 
 }
 
+.color-whitesmoke {
+    color: whitesmoke;
+}
+
+form.dark {
+    color: #eeeeee;
+}
+
+form.dark input {
+    color: #eeeeee;
+}
+
+form.dark label {
+    font-size: 1.2em;
+}
+
+form.dark input,
+form.dark textarea {
+    background-color: rgb(95, 100, 116);
+    border: 1px solid rgb(114, 120, 138);
+}
+
+.dark-bg{
+    background-color: rgba(3, 3, 3, .1);
+    box-shadow: -2px -2px 16px 4px #313131 inset;
+}
+
 .ctrl-common {
     border-radius: 3px;
     background-color: #fff;
@@ -118,4 +145,12 @@ input.ivu-input {
     background-color: #616161 !important;
     color: whitesmoke;
     border: 1px solid #333;
+}
+
+.ivu-tabs-nav .ivu-tabs-tab {
+    color: #9f9f9f;
+}
+
+.ivu-tabs-nav .ivu-tabs-tab-active {
+    color: #2d8cf0;
 }

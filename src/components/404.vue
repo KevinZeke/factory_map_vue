@@ -6,7 +6,14 @@
                 &nbsp;&nbsp;
                 {{title}}
             </h4>
-            <p>{{content}}</p>
+            <p>{{content}}&nbsp;&nbsp;
+                <Icon
+                        color="steelblue"
+                        style="cursor: pointer"
+                        size="25"
+                        @click="$router.push({name:'login'})"
+                        type="log-in"></Icon>
+            </p>
             <slot></slot>
         </div>
     </div>
@@ -21,9 +28,9 @@
             content: {type: String, default: '请检查地址是否正确或尝试重新登录'}
         },
         mounted() {
-            // threeWaveBg('code404',function (dom) {
-            //     dom.style.opacity = '0.6';
-            // });
+            threeWaveBg('code404', function (dom) {
+                dom.style.opacity = '0.6';
+            });
         }
     }
 </script>
@@ -34,7 +41,7 @@
     }
 
     .box {
-        background-color: rgba(3, 3, 3, .7);
+        background-color: rgba(3, 3, 3, .6);
         color: #d5d5d5;
         margin-top: 15%;
         font-size: 1.4em;

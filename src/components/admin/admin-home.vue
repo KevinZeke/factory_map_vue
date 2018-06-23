@@ -8,7 +8,7 @@
         <div class="clearfix show-box">
             <div class="col-md-3 col-lg-3 col-sm-3 col-xs-6 box-container">
                 <div class="box box1">
-                    <router-link :to="{name:'adminStatistics'}">
+                    <router-link :to="{name:'adminWatch'}">
                         监控
                         <Icon class="pull-right"
                               color="#333"
@@ -290,12 +290,12 @@
         mounted() {
             setTimeout(() => {
                 this.drawPie();
-            }, 400)
-            // threeWaveBg(
-            //     'admin-home-wrap-hook', {s: 100, x: 30, y: 30}, function (dom) {
-            //         //dom.id = 'wave';
-            //         dom.style.opacity = '0.18';
-            //     });
+            }, 800);
+            threeWaveBg(
+                'admin-home-wrap-hook', {s: 100, x: 30, y: 30}, function (dom) {
+                    //dom.id = 'wave';
+                    dom.style.opacity = '0.16';
+                });
         },
         computed: {
             ...mapGetters([
@@ -308,7 +308,8 @@
                     backgroundColor: 'rgba(44, 52, 60, .7)',
 
                     title: {
-                        text: '正在开发中',
+                        text: '数据分析概览',
+                        subtext: '正在开发中',
                         left: 'center',
                         top: 20,
                         textStyle: {

@@ -1,5 +1,5 @@
 <template>
-    <form class=" col-md-10 col-lg-10 col-md-push-1 col-lg-push-1 form" @submit.prevent>
+    <form class="dark col-md-10 col-lg-10 col-md-push-1 col-lg-push-1 form" @submit.prevent>
         <div class="form-group">
             <label for="InputName">厂家名称</label>
             <input v-model="name" class="form-control" id="InputName" placeholder="厂家名称">
@@ -81,20 +81,5 @@
 </script>
 
 <style scoped>
-    form {
-        color: #eeeeee;
-    }
 
-    form input {
-        color: #eeeeee;
-    }
-
-    label {
-        font-size: 1.2em;
-    }
-
-    input, textarea {
-        background-color: rgb(95, 100, 116);
-        border: 1px solid rgb(114, 120, 138);
-    }
 </style>

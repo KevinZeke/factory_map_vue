@@ -42,7 +42,7 @@
             factoryList() {
                 return this.factoryPoints.filter((p) => {
                     //console.log(p);
-                    return new RegExp(this.searchValue, 'gi').test(p.name);
+                    return new RegExp(this.searchValue, 'gi').test(p.name) && (p.name != '管理员');
                 });
             }
         },

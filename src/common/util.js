@@ -46,8 +46,11 @@ export function getLastDay(year, month) {
 /**
  *
  * @param String id
+ * @param Object id
+ * @param Function id
  */
 export function threeWaveBg(id, conf, wavDomCallback) {
+    return;
     if (!id) return;
     if (!conf || typeof conf == 'function') {
         wavDomCallback = conf;
@@ -57,6 +60,8 @@ export function threeWaveBg(id, conf, wavDomCallback) {
     var SEPARATION = conf.s || 80,
         AMOUNTX = conf.x || 50,
         AMOUNTY = conf.y || 30;
+
+    var domId = conf.id || '__THREE_WAVE__';
 
     var container;
     var camera, scene, renderer;
@@ -73,6 +78,11 @@ export function threeWaveBg(id, conf, wavDomCallback) {
     animate();
 
     function init() {
+
+        var wavDom = document.getElementById(domId);
+        if(wavDom){
+            wavDom.parentNode.removeChild(wavDom);
+        }
 
         container = document.createElement('div');
         document.getElementById(id).appendChild(container);

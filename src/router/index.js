@@ -12,12 +12,14 @@ import adminManage from '../components/adminManage'
 import adminStatistics from '../components/admin/admin-statistics.vue'
 import adminCtrl from '../components/admin/admin-control.vue'
 import adminCtrlFac from '../components/admin/admin-ctrl-factory'
+import adminWatch from '../components/admin/admin-watch.vue'
 import adminHome from '../components/admin/admin-home.vue'
 import errorDirect from '../components/404.vue'
 import noData from '../components/factory/nodata.vue'
 import {adminGuard} from "./guard";
 
 Vue.use(Router)
+
 
 const router = new Router({
     routes: [
@@ -30,7 +32,7 @@ const router = new Router({
             path: '/adminManage',
             //name: 'adminManage',
             component: adminManage,
-            beforeEnter:adminGuard,
+            beforeEnter: adminGuard,
             children: [
                 {
                     path: '',
@@ -41,8 +43,8 @@ const router = new Router({
                     component: adminCtrl,
                     children: [
                         {
-                            path:'',
-                            redirect:'acModi'
+                            path: '',
+                            redirect: 'acModi'
                         },
                         {
                             path: 'acModi',
@@ -65,6 +67,11 @@ const router = new Router({
                     path: 'adminStatistics',
                     name: 'adminStatistics',
                     component: adminStatistics
+                },
+                {
+                    path: 'adminWatch',
+                    name: 'adminWatch',
+                    component: adminWatch
                 }
             ]
         },
@@ -134,5 +141,12 @@ const router = new Router({
     ]
 });
 
+// router.beforeEach(function (to, from, next) {
+//     console.log(from);
+//     if (from.name == 'login') {
+//         this.$Message.success('This is a success tip');
+//     }
+//     next();
+// });
 
 export default router;

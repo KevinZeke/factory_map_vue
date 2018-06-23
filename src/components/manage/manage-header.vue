@@ -34,7 +34,7 @@
 <style scoped>
     .logout {
         color: #e2e2e2;
-        font-size: 1.2em;
+        font-size: 1.1em;
         padding: 15px;
         box-sizing: border-box;
         cursor: pointer;

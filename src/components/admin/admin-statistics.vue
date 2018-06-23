@@ -6,7 +6,8 @@
                     style="padding-left: 50px;box-sizing: border-box">
                     <li>
                         <router-link
-                                :to="{path:'/adminManage'}">主页</router-link>
+                                :to="{path:'/adminManage'}">主页
+                        </router-link>
                         <span class="divider">></span>
                     </li>
                     <li class="active">统计</li>
@@ -14,42 +15,65 @@
             </div>
         </div>
         <div class="datepicker clearfix">
-            <div class="col-md-6 col-md-offset-6">
+            <div class="col-md-7 col-lg-7">
+                <div class="clearfix search">
+                    <Input v-model="searchValue"
+                           class="pull-right"
+                           icon="search"
+                           placeholder="厂家搜索" style="width: 240px"></Input>
+                </div>
+            </div>
+            <div class="col-md-5 col-lg-5">
                 <datepicker @timeChange="timeOnChange"></datepicker>
             </div>
         </div>
-        <div class="order">
-            <span style="white-space:pre;">  </span><span class="line"></span>
-            <span style="white-space:pre;">  </span><span class="txt">功能导航</span>
-            <span style="white-space:pre;">  </span><span class="line"></span>
-        </div>
-        <div class="chem-pie ">
-            <div class="col-md-4">
-                <pie v-if="chartShow" :height="'300px'" :option="chemicalPieData">
-                </pie>
-            </div>
-            <div class="col-md-4">
-                <pie v-if="chartShow" :height="'300px'" :option="chemicalPieData">
-                </pie>
-            </div>
-            <div class="col-md-4">
-                <pie v-if="chartShow" :height="'300px'" :option="chemicalPieData">
-                </pie>
-            </div>
-        </div>
-        <div class="order">
-            <span style="white-space:pre;">  </span><span class="line"></span>
-            <span style="white-space:pre;">  </span><span class="txt">功能导航</span>
-            <span style="white-space:pre;">  </span><span class="line"></span>
-        </div>
-        <div class="chem-bar ">
-            <bar
-                    style="margin-top:20px;"
-                    ref="bar"
-                    v-if="chartShow"
-                    :option="chemicalBarData"
-            ></bar>
-        </div>
+
+        <Tabs value="name1">
+            <TabPane label="厂商数据概览" name="name1">
+                <div class="order">
+                    <span style="white-space:pre;">  </span><span class="line"></span>
+                    <span style="white-space:pre;">  </span><span class="txt">
+                高位化学品存储量一览
+            </span>
+                    <span style="white-space:pre;">  </span><span class="line"></span>
+                </div>
+                <div class="chem-pie ">
+                    <div class="col-md-4">
+                        <pie v-if="chartShow" :height="'300px'" :option="chemicalPieData">
+                        </pie>
+                    </div>
+                    <div class="col-md-4">
+                        <pie v-if="chartShow" :height="'300px'" :option="chemicalPieData">
+                        </pie>
+                    </div>
+                    <div class="col-md-4">
+                        <pie v-if="chartShow" :height="'300px'" :option="chemicalPieData">
+                        </pie>
+                    </div>
+                </div>
+                <div class="order">
+                    <span style="white-space:pre;">  </span><span class="line"></span>
+                    <span style="white-space:pre;">  </span><span class="txt">
+                当月储量变化趋势
+            </span>
+                    <span style="white-space:pre;">  </span><span class="line"></span>
+                </div>
+                <div class="chem-bar ">
+                    <bar
+                            style="margin-top:20px;"
+                            ref="bar"
+                            v-if="chartShow"
+                            :option="chemicalBarData"
+                    ></bar>
+                </div>
+            </TabPane>
+            <TabPane label="化学品数据" name="name2">
+                <h4 style="color: whitesmoke" class="text-center">开发中</h4>
+            </TabPane>
+            <TabPane label="统计分析" name="name3">
+                <h4 style="color: whitesmoke"  class="text-center">开发中</h4>
+            </TabPane>
+        </Tabs>
     </div>
 </template>
 
@@ -67,10 +91,11 @@
             return {
                 chartShow: true,
                 chemicalBarData: {},
-                chemicalPieData: {}
+                chemicalPieData: {},
+                searchValue:''
             }
         },
-        created(){
+        created() {
             // if (!this.userinfo.type == apiConf.superUserType) {
             //     this.$router.push({path: '/404'});
             // }
@@ -191,11 +216,14 @@
                     legend: {
                         orient: 'vertical',
                         x: 'left',
-                        data: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎']
+                        data: ['化学品A', '化学品B', '化学品C', '化学品D', '化学品E'],
+                        textStyle: {
+                            color: 'whitesmoke'
+                        }
                     },
                     series: [
                         {
-                            name: '访问来源',
+                            name: '储量',
                             type: 'pie',
                             radius: ['50%', '70%'],
                             avoidLabelOverlap: false,
@@ -218,17 +246,17 @@
                                 }
                             },
                             data: [
-                                {value: 335, name: '直接访问'},
-                                {value: 310, name: '邮件营销'},
-                                {value: 234, name: '联盟广告'},
-                                {value: 135, name: '视频广告'},
-                                {value: 1548, name: '搜索引擎'}
+                                {value: 335, name: '化学品A'},
+                                {value: 310, name: '化学品B'},
+                                {value: 234, name: '化学品C'},
+                                {value: 135, name: '化学品D'},
+                                {value: 1548, name: '化学品E'}
                             ]
                         }
                     ]
                 };
             },
-            timeOnChange(curTime){
+            timeOnChange(curTime) {
                 //alert(JSON.stringify(curTime));
             }
         },
@@ -237,7 +265,7 @@
                 'userinfo'
             ])
         },
-        components: {manageHeader, bar, pie,datepicker}
+        components: {manageHeader, bar, pie, datepicker}
     }
 </script>
 
@@ -246,11 +274,11 @@
         /*color: yellow;*/
     }
 
-    .datepicker{
+    .datepicker {
         width: 100%;
     }
 
-    *{
+    * {
         box-sizing: border-box;
     }
 
@@ -266,7 +294,6 @@
         background-color: rgba(3, 3, 3, .2);
         box-shadow: -2px -2px 20px 4px #424242 inset;
     }
-
 
     hr {
         margin: 0;
