@@ -29,7 +29,7 @@
         </div>
 
         <Tabs value="name1">
-            <TabPane label="厂商数据概览" name="name1">
+            <TabPane label="厂商数据概览" icon="ionic" name="name1">
                 <div class="order">
                     <span style="white-space:pre;">  </span><span class="line"></span>
                     <span style="white-space:pre;">  </span><span class="txt">
@@ -67,10 +67,10 @@
                     ></bar>
                 </div>
             </TabPane>
-            <TabPane label="化学品数据" name="name2">
+            <TabPane label="化学品数据" icon="waterdrop"  name="name2">
                 <h4 style="color: whitesmoke" class="text-center">开发中</h4>
             </TabPane>
-            <TabPane label="统计分析" name="name3">
+            <TabPane label="统计分析" icon="ios-keypad"  name="name3">
                 <h4 style="color: whitesmoke"  class="text-center">开发中</h4>
             </TabPane>
         </Tabs>

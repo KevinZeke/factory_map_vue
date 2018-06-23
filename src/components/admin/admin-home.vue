@@ -7,7 +7,7 @@
         </div>
         <div class="clearfix show-box">
             <div class="col-md-3 col-lg-3 col-sm-3 col-xs-6 box-container">
-                <div class="box box1">
+                <Badge count="4" class="box box1">
                     <router-link :to="{name:'adminWatch'}">
                         监控
                         <Icon class="pull-right"
@@ -16,7 +16,7 @@
                               type="eye"></Icon>
                     </router-link>
                     <hr>
-                </div>
+                </Badge>
             </div>
             <div class="col-md-3 col-lg-3 col-sm-3 col-xs-6 box-container">
                 <div class="box box2">
@@ -456,6 +456,7 @@
         box-sizing: border-box;
         border-radius: 5px;
         height: 100%;
+        width: 100%;
     }
 
     .box .num {
