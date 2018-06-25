@@ -18,7 +18,7 @@ import errorDirect from '../components/404.vue'
 import noData from '../components/factory/nodata.vue'
 import {adminGuard} from "./guard";
 
-Vue.use(Router)
+Vue.use(Router);
 
 
 const router = new Router({
@@ -111,6 +111,7 @@ const router = new Router({
             path: '/mapCtrl',
             name: 'mapCtrl',
             component: mapCtrl,
+            beforeEnter: adminGuard,
             children: [
                 {
                     path: 'factoryDetail/:id',

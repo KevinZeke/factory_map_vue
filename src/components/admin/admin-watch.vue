@@ -15,7 +15,7 @@
             </div>
         </div>
         <!--<h4 class="text-center">watch</h4>-->
-        <div class="datepicker clearfix">
+        <div class="datepicker dark clearfix">
             <div class="text-center col-md-2 col-lg-2">
                 <i-switch
                         v-model="chartShow"
@@ -25,7 +25,7 @@
                       class="color-whitesmoke">
                 </span>
             </div>
-            <div class="col-md-5 col-lg-5">
+            <div class="col-md-5  col-lg-5">
                 <div class="clearfix search">
                     <Input v-model="searchValue"
                            class="pull-right"
@@ -56,160 +56,41 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
+                        <tr v-for="factory in factoryODinfo">
+                            
                             <td>
-                            <span class="attention-tag">
-                                <Icon color="#fff" type="alert-circled"></Icon>
-                                已经逾期
+                            <span v-if="factory.status==1" class="attention-tag">
+                                <Icon color="#fff" v-if="factory.status==1" type="alert-circled">
+                                </Icon>
+                                <span v-if="factory.status==1">已经逾期</span>
+                            </span>
+                            <span v-if="factory.status==2" class="notice-tag">
+                                <Icon color="#fff" v-if="factory.status==2" type="ios-clock">
+                                </Icon>
+                                <span v-if="factory.status==2">即将逾期</span>
+                            </span>
+                            <span v-if="factory.status==-1">
+                                -
                             </span>
                             </td>
-                            <td>泰州A化工厂</td>
-                            <td class="hidden-sm hidden-xs">李连</td>
-                            <td class="hidden-sm hidden-xs">0519-8990123</td>
-                            <td>2018-06-11</td>
-                            <td>
+                            
+                            <td>{{factory.name}}</td>
+                            <td class="hidden-sm hidden-xs">{{factory.fr}}</td>
+                            <td class="hidden-sm hidden-xs">{{factory.tel}}</td>
+                            <td>{{factory.last_update}}</td>
+                            
+                            <td  v-if="factory.is_handel==0">
                                 <button @click="showDetail = true"
                                         class="btn info-btn btn-xs">未处理
                                 </button>
                             </td>
-                        </tr>
-                        <tr>
-                            <td>
-                            <span class="attention-tag">
-                                <Icon color="#fff" type="alert-circled"></Icon>
-                                已经逾期
-                            </span>
+                            <td  v-if="factory.is_handel==1">
+                                已处理
                             </td>
-                            <td>泰州B化工厂</td>
-                            <td class="hidden-sm hidden-xs">张一</td>
-                            <td class="hidden-sm hidden-xs">0519-8990123</td>
-                            <td>2018-06-11</td>
-                            <td>
-                                <button @click="showDetail = true" class="btn info-btn btn-xs">
-                                    未处理
-                                </button>
+                            <td  v-if="factory.is_handel==-1">
+                                -
                             </td>
                         </tr>
-                        <tr>
-                            <td>
-                            <span class="attention-tag">
-                                <Icon color="#fff" type="alert-circled"></Icon>
-                                已经逾期
-                            </span>
-                            </td>
-                            <td>泰州C化工厂</td>
-                            <td class="hidden-sm hidden-xs">王菲</td>
-                            <td class="hidden-sm hidden-xs">0519-365657</td>
-                            <td>2018-06-08</td>
-                            <td>
-                                <button @click="showDetail = true" class="btn info-btn btn-xs">未处理</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                            <span class="attention-tag">
-                                <Icon color="#fff" type="alert-circled"></Icon>
-                                已经逾期
-                            </span>
-                            </td>
-                            <td>泰州D化工厂</td>
-                            <td class="hidden-sm hidden-xs">赵四</td>
-                            <td class="hidden-sm hidden-xs">0519-568578565</td>
-                            <td>2018-06-01</td>
-                            <td>
-                                <button @click="showDetail = true" class="btn info-btn btn-xs">未处理</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                            <span class="notice-tag">
-                                <Icon color="#333" type="ios-clock"></Icon>
-                                即将逾期
-                            </span>
-                            </td>
-                            <td>泰州E化工厂</td>
-                            <td class="hidden-sm hidden-xs">赵五</td>
-                            <td class="hidden-sm hidden-xs">0519-2342525</td>
-                            <td>2018-06-20</td>
-                            <td>
-                                <button @click="showDetail = true" class="btn info-btn btn-xs">未处理</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                            <span class="notice-tag">
-                                <Icon color="#333" type="ios-clock"></Icon>
-                                即将逾期
-                            </span>
-                            </td>
-                            <td>泰州F化工厂</td>
-                            <td class="hidden-sm hidden-xs">赵六</td>
-                            <td class="hidden-sm hidden-xs">0519-31312313</td>
-                            <td>2018-06-20</td>
-                            <td>
-                                <button @click="showDetail = true"
-                                        class="btn info-btn btn-xs">未处理
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                            <span class="notice-tag">
-                                <Icon color="#333" type="ios-clock"></Icon>
-                                即将逾期
-                            </span>
-                            </td>
-                            <td>泰州G化工厂</td>
-                            <td class="hidden-sm hidden-xs">赵六</td>
-                            <td class="hidden-sm hidden-xs">0519-4564746</td>
-                            <td>2018-06-19</td>
-                            <td>
-                                <button @click="showDetail = true"
-                                        class="btn info-btn btn-xs">未处理
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>-</td>
-                            <td>-</td>
-                            <td class="hidden-sm hidden-xs">-</td>
-                            <td class="hidden-sm hidden-xs">-</td>
-                            <td>-</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>-</td>
-                            <td>-</td>
-                            <td class="hidden-sm hidden-xs">-</td>
-                            <td class="hidden-sm hidden-xs">-</td>
-                            <td>-</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>-</td>
-                            <td>-</td>
-                            <td class="hidden-sm hidden-xs">-</td>
-                            <td class="hidden-sm hidden-xs">-</td>
-                            <td>-</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>-</td>
-                            <td>-</td>
-                            <td class="hidden-sm hidden-xs">-</td>
-                            <td class="hidden-sm hidden-xs">-</td>
-                            <td>-</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>-</td>
-                            <td>-</td>
-                            <td class="hidden-sm hidden-xs">-</td>
-                            <td class="hidden-sm hidden-xs">-</td>
-                            <td>-</td>
-                            <td>-</td>
-                        </tr>
-
                         </tbody>
                     </table>
                 </div>
@@ -255,24 +136,52 @@
     import datepicker from '../../base/date-selector/datepicker.vue'
     import pie from '../../chart/pie'
     import apiConf from "../../api/api.conf";
+    import {getAlloverdueInfo} from "../../api/factory";
 
     export default {
         data() {
             return {
                 searchValue: '',
                 chartShow: true,
-                pieData: null
+                pieData: null,
+                factoryODinfo:[]
             }
         },
-        created() {
+        created(){
+            this._getAlloverdueInfo();
             this.drawPie();
+        },
+        mounted() {
+            
         },
         computed: {
             ...mapGetters([
                 'userinfo'
-            ])
+            ]),
+            factoryODinfoComputed(){
+                
+            }
         },
         methods: {
+            _getAlloverdueInfo(){
+                getAlloverdueInfo().then(resp=>{
+                    //console.log(resp.data.data);
+                    let factoryODinfo = resp.data.data;
+                    for (let i = factoryODinfo.length; i < 10; i++) {
+                        factoryODinfo.push({
+                            name:'-',fr:'-',tel:'-',last_update:'-',status:-1,is_handel:-1
+                        });
+                    };
+                    console.log(factoryODinfo)
+                    this.factoryODinfo = factoryODinfo;
+                }).catch((err) => {
+                    console.log(err);
+                    this.$Modal.error({
+                        title: '网络错误',
+                        content: '获得工厂超期信息失败'
+                    });
+                });
+            },
             timeOnChange() {
             },
             drawPie() {

@@ -1,0 +1,5 @@
+<?php
+
+$OVERDUE_CODE = 1;
+$NEAROVER_CODE = 2;
+$NORMAL_CODE = 0;

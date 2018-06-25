@@ -26,6 +26,18 @@ export function isSupportCanvas() {
 }
 
 /**
+ * 判断浏览区是否是移动端
+ * @returns {boolean}
+ */
+export function isPhone(){
+    if ((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {  
+        return true;  
+    }else{  
+        return false;  
+    }  
+}
+
+/**
  * 获取某月最后一天的日期
  * @param number year
  * @param number month
@@ -50,7 +62,7 @@ export function getLastDay(year, month) {
  * @param Function id
  */
 export function threeWaveBg(id, conf, wavDomCallback) {
-    //return;
+    if(isPhone()) return;
     if (!id) return;
     if (!conf || typeof conf == 'function') {
         wavDomCallback = conf;
@@ -99,7 +111,7 @@ export function threeWaveBg(id, conf, wavDomCallback) {
         }
         //container.style.opacity = '0.2';
 
-        camera = new THREE.PerspectiveCamera(120, window.innerWidth / window.innerHeight, 1, 10000);
+        camera = new THREE.PerspectiveCamera(120, window.innerWidth / window.innerHeight, 1, 1000);
         camera.position.z = 1000;
 
         scene = new THREE.Scene();

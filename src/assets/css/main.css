@@ -154,7 +154,7 @@ a {
     color: whitesmoke;
 }
 
-input.ivu-input {
+.dark input.ivu-input {
     background-color: #616161 !important;
     color: whitesmoke;
     border: 1px solid #333;

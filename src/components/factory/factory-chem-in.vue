@@ -21,29 +21,7 @@
                 <button class="btn btn-primary disabled">下载模板</button>
             </TabPane>
             <TabPane label="手工录入" icon="person" name="name2">
-                <form class=" col-md-10 col-lg-10 col-md-push-1 col-lg-push-1 form" @submit.prevent>
-                    <div class="form-group">
-                        <label for="InputName">厂家名称</label>
-                        <input class="form-control" id="InputName" placeholder="厂家名称">
-                    </div>
-                    <div class="form-group">
-                        <label for="InputAddr">地址</label>
-                        <input type="" class="form-control" id="InputAddr" placeholder="地址">
-                    </div>
-                    <div class="form-group">
-                        <label for="InputFr">法人</label>
-                        <input type="" class="form-control" id="InputFr" placeholder="法人">
-                    </div>
-                    <div class="form-group">
-                        <label for="InputTel">电话</label>
-                        <input type="" class="form-control" id="InputTel" placeholder="电话">
-                    </div>
-                    <div class="form-group">
-                        <label>介绍</label><br>
-                        <textarea style="width: 100%" rows="3"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-default">提交</button>
-                </form>
+                <h4 class="text-center color-whitesmoke ">开发中</h4>
             </TabPane>
             <TabPane label="接口上传" icon="network" name="name3">
                 <h4 style=" text-align:center; margin: 10px auto;color: cornflowerblue">

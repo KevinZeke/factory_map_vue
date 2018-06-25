@@ -2,7 +2,7 @@
     <div>
         <div class="clearfix search">
             <Input v-model="searchValue"
-                   class="pull-right"
+                   class="pull-right dark"
                    icon="search"
                    placeholder="搜索" style="width: 240px"></Input>
         </div>

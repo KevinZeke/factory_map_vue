@@ -5,7 +5,7 @@
             <span style="white-space:pre;">  </span><span class="txt">快速浏览</span>
             <span style="white-space:pre;">  </span><span class="line"></span>
         </div>
-        <div class="show-box">
+        <div class="show-box row">
             <div class="col-md-3 col-lg-3 col-sm-3 col-xs-6 box-container">
                 <div class="box box1">
                     <div>本月更新：</div>
@@ -35,12 +35,13 @@
                 </div>
             </div>
         </div>
-        <div class="order">
-            <span style="white-space:pre;">  </span><span class="line"></span>
-            <span style="white-space:pre;">  </span><span class="txt">更新数据统计</span>
-            <span style="white-space:pre;">  </span><span class="line"></span>
-        </div>
+        
         <div class="row">
+            <div class="order">
+                <span style="white-space:pre;">  </span><span class="line"></span>
+                <span style="white-space:pre;">  </span><span class="txt">更新数据统计</span>
+                <span style="white-space:pre;">  </span><span class="line"></span>
+            </div>
             <div class="update-chart col-lg-10 col-md-10">
                 <eline :width="'100%'"
                        :height="'95%'" v-if="showChartDelay" :option="lineData"></eline>
@@ -242,7 +243,7 @@
 
     .show-box {
         padding: 0 15px;
-        height: 120px;
+        /*height: 120px;*/
         margin-bottom: 20px;
     }
 
@@ -265,7 +266,7 @@
         padding: 15px;
         box-sizing: border-box;
         border-radius: 5px;
-        height: 100%;
+        height: 100px;
     }
 
     .box .num {

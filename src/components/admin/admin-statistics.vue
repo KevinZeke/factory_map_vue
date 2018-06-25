@@ -14,7 +14,7 @@
                 </ul>
             </div>
         </div>
-        <div class="datepicker clearfix">
+        <div class="datepicker dark clearfix">
             <div class="col-md-7 col-lg-7">
                 <div class="clearfix search">
                     <Input v-model="searchValue"

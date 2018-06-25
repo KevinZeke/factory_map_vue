@@ -63,6 +63,11 @@
         </div>
         <br>
         <hr class="clearfix">
+        <div class="row">
+            <span>最近更新：2018年6月1日 </span>
+            <button class="btn btn-primary btn-sm" 
+                    @click="$Modal.info({content:'开发中...'})">检测更新</button>
+        </div>
         <table id="detail-table" class="table table-striped text-center">
             <thead>
             <tr>

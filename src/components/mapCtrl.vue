@@ -8,9 +8,9 @@
                 :factoryPoints="factoryInfos"
                 @curPointOnchange="changePoints">
         </ctrl-list>
-        <ctrl-head1></ctrl-head1>
-        <ctrl-head2></ctrl-head2>
-        <ctrl-right></ctrl-right>
+        <!-- <ctrl-head1></ctrl-head1> -->
+        <!-- <ctrl-head2></ctrl-head2> -->
+        <!-- <ctrl-right></ctrl-right> -->
         <router-view></router-view>
     </div>
 </template>
