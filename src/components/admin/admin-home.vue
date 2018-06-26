@@ -7,6 +7,19 @@
         </div>
         <div class="clearfix show-box">
             <div class="col-md-3 col-lg-3 col-sm-3 col-xs-6 box-container">
+                <div class="box box3">
+                    <router-link :to="{name:'adminRealtimeData'}">
+                        实时数据
+                        <Icon class="pull-right"
+                              color="#333"
+                              size="40"
+                              type="stats-bars"></Icon>
+                    </router-link>
+                    <hr>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-lg-3 col-sm-3 col-xs-6 box-container">
                 <Badge count="4" class="box box1">
                     <router-link :to="{name:'adminWatch'}">
                         监控
@@ -30,18 +43,7 @@
                     <hr>
                 </div>
             </div>
-            <div class="col-md-3 col-lg-3 col-sm-3 col-xs-6 box-container">
-                <div class="box box3">
-                    <router-link :to="{name:'mapCtrl'}">
-                        地图
-                        <Icon class="pull-right"
-                              color="#333"
-                              size="40"
-                              type="ios-location"></Icon>
-                    </router-link>
-                    <hr>
-                </div>
-            </div>
+
             <div class="col-md-3 col-lg-3 col-sm-3 col-xs-6 box-container">
                 <div class="box box4">
                     <router-link :to="{path:'adminCtrl'}">

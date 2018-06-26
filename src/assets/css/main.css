@@ -26,6 +26,10 @@ body {
 
 }
 
+.dark .ivu-layout {
+    background-color: #252830;
+}
+
 .color-whitesmoke {
     color: whitesmoke;
 }
@@ -48,21 +52,24 @@ form.dark textarea {
     border: 1px solid rgb(114, 120, 138);
 }
 
-.dark-bg{
+.dark-bg {
     background-color: rgba(3, 3, 3, .1);
     box-shadow: -2px -2px 16px 4px #282828 inset;
 }
 
-.font-size-12{
+.font-size-12 {
     font-size: 1.2em;
 }
-.font-size-13{
+
+.font-size-13 {
     font-size: 1.3em;
 }
-.font-size-14{
+
+.font-size-14 {
     font-size: 1.4em;
 }
-.font-size-15{
+
+.font-size-15 {
     font-size: 1.5em;
 }
 

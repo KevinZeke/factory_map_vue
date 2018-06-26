@@ -48,6 +48,10 @@
                 var myChart = echarts.init(document.getElementById(this.elId))
                 // 绘制图表
                 myChart.setOption(this.option);
+
+                window.addEventListener('resize',function () {
+                    myChart.resize();
+                })
             },
         }
     }

@@ -12,6 +12,7 @@ import adminManage from '../components/adminManage'
 import adminStatistics from '../components/admin/admin-statistics.vue'
 import adminCtrl from '../components/admin/admin-control.vue'
 import adminCtrlFac from '../components/admin/admin-ctrl-factory'
+import adminRealtimeData from '../components/admin/admin-realtime-data'
 import adminWatch from '../components/admin/admin-watch.vue'
 import adminHome from '../components/admin/admin-home.vue'
 import errorDirect from '../components/404.vue'
@@ -72,6 +73,11 @@ const router = new Router({
                     path: 'adminWatch',
                     name: 'adminWatch',
                     component: adminWatch
+                },
+                {
+                    path:'adminRealtimeData',
+                    name: 'adminRealtimeData',
+                    component: adminRealtimeData
                 }
             ]
         },
