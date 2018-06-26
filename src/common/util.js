@@ -62,6 +62,7 @@ export function getLastDay(year, month) {
  * @param Function id
  */
 export function threeWaveBg(id, conf, wavDomCallback) {
+    return;
     if(isPhone()) return;
     if (!id) return;
     if (!conf || typeof conf == 'function') {

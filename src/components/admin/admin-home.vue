@@ -290,7 +290,7 @@
         mounted() {
             setTimeout(() => {
                 this.drawPie();
-            }, 800);
+            }, 700);
             threeWaveBg(
                 'admin-home-wrap-hook', {s: 100, x: 30, y: 30}, function (dom) {
                     //dom.id = 'wave';

@@ -40,6 +40,16 @@
                 </ul>
             </div>
             <div class="right col-lg-10 col-md-10 ">
+                <div class="color-whitesmoke hidden-md hidden-lg" style="margin-bottom:30px;">
+                    <router-link :to="{name:'acModi'}" class="oy label label-default ">
+                            账号密码修改
+                    </router-link>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <router-link class="oy label label-default"
+                                     :to="{name:'adminCtrlFac'}">
+                            厂商信息管理
+                    </router-link>
+                </div>
                 <keep-alive>
                     <router-view></router-view>
                 </keep-alive>

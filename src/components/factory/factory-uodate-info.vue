@@ -1,6 +1,6 @@
 <template>
     <div class="fac-update">
-        <div class="order">
+        <div class="clearfix order">
             <span style="white-space:pre;">  </span><span class="line"></span>
             <span style="white-space:pre;">  </span><span class="txt">快速浏览</span>
             <span style="white-space:pre;">  </span><span class="line"></span>

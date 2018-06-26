@@ -14,8 +14,8 @@
                         <th>名称</th>
                         <th>法人</th>
                         <th>地址</th>
-                        <th>经度</th>
-                        <th>纬度</th>
+                        <th class="hidden-sm hidden-xs">经度</th>
+                        <th class="hidden-sm hidden-xs">纬度</th>
                         <th>电话</th>
                         <th>操作</th>
                     </tr>
@@ -25,8 +25,8 @@
                         <th>{{factory.name}}</th>
                         <th>{{factory.fr}}</th>
                         <th>{{factory.addr}}</th>
-                        <th>{{factory.lng}}</th>
-                        <th>{{factory.lat}}</th>
+                        <th class="hidden-sm hidden-xs">{{factory.lng}}</th>
+                        <th class="hidden-sm hidden-xs">{{factory.lat}}</th>
                         <th>{{factory.tel}}</th>
                         <th class="edit">
                             <Icon @click="updateFactoryInfo(factory.id)" type="edit"></Icon>

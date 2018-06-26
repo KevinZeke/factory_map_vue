@@ -121,7 +121,7 @@
                         查看帮助
                     </button>
                     <button disabled  class="btn btn-primary btn-xs">
-                        全部标记为已经处理
+                        前往管理
                     </button>
                 </div>
             </div>
