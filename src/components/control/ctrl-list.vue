@@ -1,6 +1,14 @@
 <template>
     <div id="ctrl" class="col-md-2 col-sm-3">
         <div class="row">
+            
+            <router-link
+                    :to="{path:'/adminManage'}"> <Icon type="home"></Icon> 返回主页
+            </router-link>
+            <hr style="margin:0">
+                
+        </div>
+        <div class="row">
             <h4 class="col-md-9 col-xs-6 col-sm-6">单位列表</h4>
             <button @click="showList"
                     class="btn btn-sm btn-default  col-xs-6 col-sm-6 col-md-3 f-btn"

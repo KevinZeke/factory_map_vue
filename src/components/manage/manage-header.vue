@@ -8,20 +8,29 @@
 
             <div @click="logout" class="nav navbar-nav navbar-right logout">
                 <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                <span>当前账户：{{userinfo.name || '未知'}}</span>
                 &nbsp;
-                <span>注销</span>
+                <span>[注销]</span>
             </div>
         </div><!-- /.container-fluid -->
     </nav>
 </template>
 
 <script>
-
+    import {mapGetters} from 'vuex'
     export default {
         name: "manage-header",
         props: {
             brand: {type: String, default: ''},
             user: {type: String, default: ''}
+        },
+        created(){
+            console.log(this.userinfo)
+        },
+        computed: {
+            ...mapGetters([
+                'userinfo'
+            ])
         },
         methods:{
             logout() {

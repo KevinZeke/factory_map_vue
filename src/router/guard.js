@@ -4,8 +4,8 @@ import store from "../store/vuex";
 
 export function adminGuard(to, from, next) {
 
-    next();
-    return;
+    // next();
+    // return;
 
     //console.log('------------');
     //console.log(to, from);

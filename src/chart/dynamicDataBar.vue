@@ -35,11 +35,14 @@
         },
         data() {
             return {
-                elId: "chart-bar-" + (Math.random() * 10000 >> 0),
+                elId: "chart-d-bar-" + (Math.random() * 10000 >> 0),
                 option: {
                     title: {
-                        text: '动态数据',
-                        subtext: '纯属虚构'
+                        text: '实时数据',
+                        //subtext: '纯属虚构',
+                        textStyle:{
+                            color:'whitesmoke'
+                        }
                     },
                     tooltip: {
                         trigger: 'axis',
@@ -51,7 +54,7 @@
                         }
                     },
                     legend: {
-                        data: ['最新成交价', '预购队列']
+                        data: ['存储', '消耗']
                     },
                     dataZoom: {
                         show: false,
@@ -108,7 +111,7 @@
                                 }
                             },
                             scale: true,
-                            name: '价格',
+                            name: '千克',
                             max: 30,
                             min: 0,
                             boundaryGap: [0.2, 0.2]
@@ -122,7 +125,7 @@
                                     width: 1,
                                 }
                             },
-                            name: '预购量',
+                            name: '千克',
                             max: 1200,
                             min: 0,
                             boundaryGap: [0.2, 0.2]
@@ -130,7 +133,7 @@
                     ],
                     series: [
                         {
-                            name: '预购队列',
+                            name: '消耗',
                             type: 'bar',
                             xAxisIndex: 1,
                             yAxisIndex: 1,
@@ -144,7 +147,7 @@
                             })()
                         },
                         {
-                            name: '最新成交价',
+                            name: '存储',
                             type: 'line',
                             data: (function () {
                                 var res = [];

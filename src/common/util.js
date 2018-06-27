@@ -55,6 +55,40 @@ export function getLastDay(year, month) {
     return (new Date(new_date.getTime() - 1000 * 60 * 60 * 24)).getDate();
 }
 
+export function hasClass( elements,cName ){ 
+  return !!elements.className.match( new RegExp( "(\\s|^)" + cName + "(\\s|$)") ); 
+} 
+
+export function addClass( elements,cName ){ 
+  if( !hasClass( elements,cName ) ){ 
+    elements.className += " " + cName; 
+  }; 
+}
+
+export function removeClass( elements,cName ){ 
+  if( hasClass( elements,cName ) ){ 
+    elements.className = elements.className.replace( new RegExp( "(\\s|^)" + cName + "(\\s|$)" ), " " );
+  }; 
+}
+
+export function getNowFormatDate() {
+    var date = new Date();
+    var seperator1 = "-";
+    var seperator2 = ":";
+    var month = date.getMonth() + 1;
+    var strDate = date.getDate();
+    if (month >= 1 && month <= 9) {
+        month = "0" + month;
+    }
+    if (strDate >= 0 && strDate <= 9) {
+        strDate = "0" + strDate;
+    }
+    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate
+            + " " + date.getHours() + seperator2 + date.getMinutes()
+            + seperator2 + date.getSeconds();
+    return currentdate;
+}
+
 /**
  *
  * @param String id

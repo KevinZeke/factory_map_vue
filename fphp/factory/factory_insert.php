@@ -42,6 +42,5 @@ if ($aff_row > 0) {
     echo RespUtil::success_json();
 } else {
     echo RespUtil::error_json('数据添加失败');
-
 }
 
