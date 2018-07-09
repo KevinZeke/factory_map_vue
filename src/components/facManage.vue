@@ -1,6 +1,47 @@
 <template>
     <div class="wrap">
-        <manage-header :brand="'化工单位管理界面'"></manage-header>
+        <manage-header :brand="'化工单位管理界面'">
+            <Dropdown trigger="click"  placement="bottom-end"
+                      style="position: absolute;top: 0;right: 0;">
+                <a class="navbar-toggle collapsed" href="javascript:void(0)">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <DropdownMenu slot="list">
+                    <DropdownItem>
+                        <router-link class="oy active"
+                                     :to="{name:'factoryChemIn'}">
+                            化学品录入
+                        </router-link>
+                    </DropdownItem>
+                    <DropdownItem>
+                        <router-link class="oy "
+                                     :to="{name:'factoryInfoModi'}">
+                            厂商信息修改
+                        </router-link>
+                    </DropdownItem>
+                    <DropdownItem>
+                        <router-link :to="{name:'factoryAcModi'}" class="oy "
+                                     href="fluid/index.html">
+                            账号密码修改
+                        </router-link>
+                    </DropdownItem>
+                    <!--<DropdownItem>-->
+                        <!--<router-link :to="{name:'factoryDetailManage',params:{id:userinfo.id}}" class="oy ">-->
+                            <!--化学品数据-->
+                        <!--</router-link>-->
+                    <!--</DropdownItem>-->
+                    <DropdownItem>
+                        <router-link class="oy"
+                                     :to="{name:'factoryUpModi'}">
+                            更新记录
+                        </router-link>
+                    </DropdownItem>
+                </DropdownMenu>
+            </Dropdown>
+        </manage-header>
         <div class="facManage container">
             <div class="left col-lg-2 col-md-2 hidden-sm hidden-xs">
                 <ul class="nav pb nav-stacked wz">
@@ -110,7 +151,7 @@
         border-bottom: 1px solid rgb(109, 116, 135);
     }
 
-    .nav li {
+    .facManage .nav li {
         border-radius: 5px;
         color: rgb(207, 210, 218);
     }

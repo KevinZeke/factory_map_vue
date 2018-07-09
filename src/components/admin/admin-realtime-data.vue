@@ -1,98 +1,8 @@
-<style scoped>
-    .layout-con {
-        height: 100%;
-        width: 100%;
-    }
-
-    .menu-item span {
-        display: inline-block;
-        overflow: hidden;
-        width: 69px;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        vertical-align: bottom;
-        transition: width .2s ease .2s;
-    }
-
-    .menu-item i {
-        transform: translateX(0px);
-        transition: font-size .2s ease, transform .2s ease;
-        vertical-align: middle;
-        font-size: 16px;
-    }
-
-    .collapsed-menu span {
-        width: 0px;
-        transition: width .2s ease;
-    }
-
-    .collapsed-menu i {
-        transform: translateX(5px);
-        transition: font-size .2s ease .2s, transform .2s ease .2s;
-        vertical-align: middle;
-        font-size: 22px;
-    }
-    .f-list{
-        max-height: 300px;
-        overflow: auto;
-    }
-    .f-list li{
-        line-height: 2.2em;
-        font-size: 1.2em;
-    }
-    .f-list li:hover{
-        background-color: #ede1ff;
-    }
-
-    .warn{
-        animation:warn 2s;
-    }
-    @keyframes warn{
-        0%{
-            background-color: transparent;
-        }
-        50%{
-            background-color: rgba(248, 0, 0, 0.4);   
-        }
-        100%{
-            background-color: transparent;   
-        }
-    }
-    .box {
-        /*border: 1px solid #fff;*/
-        /*background-color: #fff;*/
-        /*font-weight: bold;*/
-        padding: 15px;
-        box-sizing: border-box;
-        border-radius: 5px;
-        height: 100%;
-        /*width: 100%;*/
-    }
-    .box-inner{
-        padding: 6px;
-        box-sizing:border-box;
-        background-color:#333;
-        border-radius: 6px;
-        height: 100%;
-    }
-    .box-inner a{
-        display: inline-block;
-        width: 100%;
-        height: 100%;
-    }
-    
-    .box-map{
-        cursor: pointer;
-    }
-
-    .box-map:hover{
-        background-color: rgba(248, 0, 0, 0.3);
-    }
-</style>
 <template>
     <div class="layout dark">
         <Layout :style="{minHeight: '100vh'}">
-            <Sider collapsible :collapsed-width="60" v-model="isCollapsed">
+            <Sider class="hidden-xs hidden-sm"
+                   collapsible :collapsed-width="60" v-model="isCollapsed">
                 <Menu active-name="1-1" theme="dark" width="auto" :class="menuitemClasses">
                     <MenuItem name="1-1">
                         <Icon type="ios-navigate"></Icon>
@@ -115,7 +25,7 @@
                         <div class="">
                             <div class="span6">
                                 <ul class="breadcrumb"
-                                    style="padding-left: 50px;box-sizing: border-box">
+                                    style="padding-left: 5%;box-sizing: border-box">
                                     <li>
                                         <router-link
                                                 :to="{path:'/adminManage'}">主页
@@ -127,7 +37,7 @@
                             </div>
                         </div>
                         <div class="ctrl-area dark clearfix" style="margin-bottom: 20px">
-                            <div class="text-center col-md-2 col-lg-2">
+                            <div class="text-center hidden-sm hidden-xs col-md-2 col-lg-2">
                                 <i-switch
                                         v-model="ctrlShow"
                                 ></i-switch>
@@ -135,7 +45,7 @@
                                       class="color-whitesmoke">
                                 </span>
                             </div>
-                            <div class="col-md-5  col-lg-5">
+                            <div class="col-md-5  col-lg-5" style="margin-bottom: 10px;">
                                 <div class="clearfix search">
                                     
                                     <span class="color-whitesmoke ">
@@ -154,14 +64,14 @@
                         <div 
                             style="padding:5px;"
                             class="mian-info row color-whitesmoke dark-bg mb-20 ">
-                            <div class="total-fac box col-md-3 col-lg-3">
+                            <div class="total-fac box col-sm-6   col-xs-6 col-md-3 col-lg-3">
                                 <div class="box-inner">
                                     当前共监控<br>
                                     <span class="font-size-25">{{factoryInfos.length}}</span>
                                     家化工企业
                                 </div>
                             </div>
-                            <div class="total-category box col-md-3 col-lg-3">
+                            <div class="total-category box col-sm-6  col-xs-6  col-md-3 col-lg-3">
                                 <div class="box-inner">
                                     危险化学品共<br>
                                     <span class="font-size-25">
@@ -170,16 +80,16 @@
                                     吨
                                 </div>
                             </div>
-                            <div class="total-category box col-md-3 col-lg-3">
+                            <div class="total-category box col-sm-6  col-xs-6  col-md-3 col-lg-3">
                                 <div class="box-inner">
-                                    最近更新于<br>
-                                    <span>今日</span>
+                                    最近更新于 <small>今日</small><br>
+                                    <!--<span>今日</span>-->
                                     <span class="font-size-25">
                                          {{lastUpdate.split(' ')[1]}}
                                     </span>
                                 </div>
                             </div>
-                            <div class="total-category box col-md-3 col-lg-3">
+                            <div class="total-category box col-sm-6  col-xs-6  col-md-3 col-lg-3">
                                 <div class="box-inner clearfix box-map">
 
                                     <router-link :to="{name:'mapCtrl'}">
@@ -400,6 +310,97 @@
         components: {datepicker, dynamicDataBar}
     }
 </script>
+<style scoped>
+    .layout-con {
+        height: 100%;
+        width: 100%;
+    }
+
+    .menu-item span {
+        display: inline-block;
+        overflow: hidden;
+        width: 69px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        vertical-align: bottom;
+        transition: width .2s ease .2s;
+    }
+
+    .menu-item i {
+        transform: translateX(0px);
+        transition: font-size .2s ease, transform .2s ease;
+        vertical-align: middle;
+        font-size: 16px;
+    }
+
+    .collapsed-menu span {
+        width: 0px;
+        transition: width .2s ease;
+    }
+
+    .collapsed-menu i {
+        transform: translateX(5px);
+        transition: font-size .2s ease .2s, transform .2s ease .2s;
+        vertical-align: middle;
+        font-size: 22px;
+    }
+    .f-list{
+        max-height: 300px;
+        overflow: auto;
+    }
+    .f-list li{
+        line-height: 2.2em;
+        font-size: 1.2em;
+    }
+    .f-list li:hover{
+        background-color: #ede1ff;
+    }
+
+    .warn{
+        animation:warn 2s;
+    }
+    @keyframes warn{
+        0%{
+            background-color: transparent;
+        }
+        50%{
+            background-color: rgba(248, 0, 0, 0.4);
+        }
+        100%{
+            background-color: transparent;
+        }
+    }
+    .box {
+        /*border: 1px solid #fff;*/
+        /*background-color: #fff;*/
+        /*font-weight: bold;*/
+        padding: 15px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        height: 100%;
+        /*width: 100%;*/
+    }
+    .box-inner{
+        padding: 6px;
+        box-sizing:border-box;
+        background-color:#333;
+        border-radius: 6px;
+        height: 100%;
+    }
+    .box-inner a{
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+    }
+
+    .box-map{
+        cursor: pointer;
+    }
+
+    .box-map:hover{
+        background-color: rgba(248, 0, 0, 0.3);
+    }
+</style>
 
 <!--<template>-->
 <!--<div class="admin-realtime-data">-->

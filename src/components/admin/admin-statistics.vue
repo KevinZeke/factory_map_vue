@@ -3,7 +3,7 @@
         <div class="">
             <div class="span6">
                 <ul class="breadcrumb"
-                    style="padding-left: 50px;box-sizing: border-box">
+                    style="padding-left: 5%;box-sizing: border-box">
                     <li>
                         <router-link
                                 :to="{path:'/adminManage'}">主页
@@ -15,29 +15,29 @@
             </div>
         </div>
         <div class="datepicker dark clearfix">
-            <div class="col-md-7 col-lg-7">
+            <div class="col-md-7 col-lg-7 col-sm-12 col-xs-12">
                 <div class="clearfix search">
                     <Input v-model="searchValue"
                            class="pull-right"
                            icon="search"
-                           placeholder="厂家搜索" style="width: 240px"></Input>
+                           placeholder="厂家搜索" style="margin-bottom: 10px;"></Input>
                 </div>
             </div>
-            <div class="col-md-5 col-lg-5">
+            <div class="col-md-5 col-lg-5  col-sm-12 col-xs-12">
                 <datepicker @timeChange="timeOnChange"></datepicker>
             </div>
         </div>
 
         <Tabs value="name1">
             <TabPane label="厂商数据概览" icon="ionic" name="name1">
-                <div class="order">
+                <div class="order  hidden-xs hidden-sm">
                     <span style="white-space:pre;">  </span><span class="line"></span>
                     <span style="white-space:pre;">  </span><span class="txt">
-                高位化学品存储量一览
+                高危化学品存储量一览
             </span>
                     <span style="white-space:pre;">  </span><span class="line"></span>
                 </div>
-                <div class="chem-pie ">
+                <div class="chem-pie hidden-xs hidden-sm">
                     <div class="col-md-4">
                         <pie v-if="chartShow" :height="'300px'" :option="chemicalPieData">
                         </pie>

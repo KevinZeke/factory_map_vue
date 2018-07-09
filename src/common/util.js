@@ -96,7 +96,7 @@ export function getNowFormatDate() {
  * @param Function id
  */
 export function threeWaveBg(id, conf, wavDomCallback) {
-    return;
+    //return;
     if(isPhone()) return;
     if (!id) return;
     if (!conf || typeof conf == 'function') {

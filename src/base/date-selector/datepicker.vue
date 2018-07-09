@@ -1,6 +1,6 @@
 <template>
     <div class="datapicker">
-        <div class=" col-md-4 clearfix" role="group" aria-label="...">
+        <div class=" col-md-4 col-lg-4 col-xs-5 col-sm-5 clearfix" role="group" aria-label="...">
 
             <div class="btn-group pull-right">
                 <button type="button"
@@ -18,7 +18,7 @@
             </div>
 
         </div>
-        <div class="block col-md-8">
+        <div class="block col-md-8 col-lg-8 col-sm-7 col-xs-7">
             <DatePicker v-if="isCurMonth"
                         type="month"
                         v-model="valueMon"

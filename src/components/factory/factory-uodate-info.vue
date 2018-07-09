@@ -15,7 +15,7 @@
             </div>
             <div class="col-md-3 col-lg-3 col-sm-3 col-xs-6 box-container">
                 <div class="box box2">
-                    <div>距上一次更新：</div>
+                    <div>距上次更新：</div>
                     <div><span class="num">4</span>天</div>
                     <hr>
                 </div>
